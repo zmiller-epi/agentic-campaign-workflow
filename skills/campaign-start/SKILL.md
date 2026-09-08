@@ -20,11 +20,11 @@ remain explicit questions. Do not invent interview answers while waiting for inp
 Read [the overview](references/campaign-workflow-overview.md) when establishing
 the workflow or resolving a convention. It provides context, not extra interview gates.
 
-When introducing the workflow to a project or improving its documentation, read
-[the repository documentation guide](references/repository-documentation.md).
-Reuse existing project docs and create only useful, grounded content as part of
-setup. Keep further documentation work in the plan when it needs investigation;
-an incomplete repo guide does not block starting a campaign.
+Use existing project documentation as context. Repository-wide setup belongs to
+[repo-init](../repo-init/SKILL.md); do not repeat it for every campaign or invoke it
+automatically because a suggested file is missing. If setup would help, mention it
+while continuing the campaign work that is already clear. No initialization marker
+or complete set of project docs is required.
 
 Summarize the intended campaign and make consequential assumptions visible. Choose a
 clear name and use `docs/campaigns/<name>/` unless the project has another convention.

@@ -20,7 +20,7 @@ worth keeping. For a pause, retain an open status and a concrete resume action.
 Keep the result marked draft while preparing it. Do not fill approval from inference.
 
 Reconcile affected project guides with what the campaign actually delivered or learned,
-following the [repository documentation guide](../campaign-start/references/repository-documentation.md)
+following the [repository documentation guide](../repo-init/references/repository-documentation.md)
 where useful. Preserve the campaign's reasoning and evidence and link to them; label
 pending conclusions and do not present abandoned approaches as current project behavior.
 

@@ -1,6 +1,6 @@
 # Moving to Campaign Workflow
 
-This revision replaces the Claude-only kit with eight shared skills. Existing
+This revision replaces the Claude-only kit with shared skills for both harnesses. Existing
 campaign records do not need a bulk migration.
 
 ## Update the installation
@@ -48,11 +48,13 @@ Commit both the shared files and their links so fresh checkouts have everything.
 The shared setup now includes optional guidance for README.md, a small AGENTS.md,
 development and design guides, and standalone notes under `docs/notes/`. Existing
 project documents can keep their names and locations. Add or improve them as useful;
-there is no required scaffold or new lifecycle for small tasks.
+there is no required scaffold or new lifecycle for small tasks. Use `repo-init`
+for initial or deliberately revisited repo documentation setup. Campaign-start
+uses the existing project docs and does not repeat that setup for each campaign.
 
 Campaign work updates affected current guides and links back to its own decisions
 and evidence. Keep old campaign records intact. See the
-[repository documentation guide](../skills/campaign-start/references/repository-documentation.md)
+[repository documentation guide](../skills/repo-init/references/repository-documentation.md)
 for the convention shipped with the skills.
 
 ## Keep historical campaigns readable
@@ -69,7 +71,7 @@ headings do not invalidate previous work.
 | `REVIEW.md` | Keep past reviews; put new review reports in `notes/`. |
 | `experiments/` and `exp-run` | Keep old runs; new run notes are part of chunk work and normally live in `notes/`. |
 | `RESULTS.md` | Keep existing tables/evidence; create `RESULT.md` when useful and link to them. |
-| `repo-init` | Install skills, then let campaign-start create the campaign folder as needed. |
+| Legacy `repo-init` | Install skills separately. The new repo-init sets up or refreshes project docs and shared instructions, without Git/settings preflight gates or a mandatory initialization state. |
 | `harden` | Ask for focused engineering work; it is outside the campaign lifecycle. |
 
 Avoid maintaining two competing final conclusions: treat an existing `RESULTS.md`

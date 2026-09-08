@@ -50,7 +50,10 @@ knowledge in the appropriate guide so AGENTS.md remains small. A brief AGENTS.md
 pointer can name the project's notes and campaign locations and link the installed
 workflow guide; keep the detailed conventions here instead of copying them there.
 
-## Introducing this into an existing project
+## Repository setup with repo-init
+
+Use [repo-init](../SKILL.md) for first-time setup or an explicit refresh. Individual
+campaigns reuse the resulting project context without repeating this setup.
 
 Read the current documentation, inspect the relevant implementation, and use the
 user's context before writing. Preserve project-specific facts and adapt existing
@@ -59,7 +62,9 @@ guides rather than reorganizing them just to match this layout.
 Within an authorized setup task, create or improve the smallest useful entry point
 and development guidance from what is known. Record consequential unknowns honestly;
 do not invent commands, methods, or project constraints to fill headings. When more
-investigation is needed, include that work in the current plan or note.
+investigation is needed, preserve a useful next action in a standalone note.
+Repeated setup should make targeted improvements rather than regenerating guides;
+no initialization marker or full documentation scaffold is required.
 
 If AGENTS.md and CLAUDE.md both exist, reconcile their distinct content before
 replacing either. Use a relative `CLAUDE.md -> AGENTS.md` link only when their content

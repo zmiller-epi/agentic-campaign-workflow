@@ -21,7 +21,7 @@ within the user's request needs no extra approval ceremony.
 
 Update affected project documentation when this chunk changes setup, usage, interfaces,
 or methods. Use the
-[repository documentation guide](../campaign-start/references/repository-documentation.md)
+[repository documentation guide](../repo-init/references/repository-documentation.md)
 when deciding where information belongs. Keep the detailed decision history and
 evidence in the campaign, and link to them from current guidance where useful.
 

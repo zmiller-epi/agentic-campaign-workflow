@@ -47,15 +47,17 @@ content. Small tasks can leave one optional note; straightforward fixes may need
 only a commit and relevant checks. Changes to setup, usage, or design should update
 the corresponding project guide and link back to campaign or note evidence as useful.
 
-The [repository documentation guide](skills/campaign-start/references/repository-documentation.md)
-explains the roles and how they fit together. Campaign-start uses it when setting up
-docs; completion skills maintain affected guides, and campaign cleanup flags stale
-guidance for the parent to address. The installer itself leaves project docs alone.
+The [repository documentation guide](skills/repo-init/references/repository-documentation.md)
+explains the roles and how they fit together. Repo-init sets up or refreshes these
+docs; campaign-start uses the existing context for each new campaign. Completion
+skills maintain affected guides, and campaign cleanup flags stale guidance for the
+parent to address. The installer itself leaves project docs alone.
 
 ## The skills
 
 | Skill | Purpose |
 | --- | --- |
+| `repo-init` | Establish useful project docs and shared agent instructions; revisit explicitly when repo setup needs attention. |
 | `campaign-start` | Interview the user, explore relevant context, and write the initial spec and plan. |
 | `chunk-start` | Get oriented and begin implementing or investigating the next chunk. |
 | `chunk-review` | Use independent subagents to review the work and write a report in `notes/`. |
@@ -64,6 +66,10 @@ guidance for the parent to address. The installer itself leaves project docs alo
 | `campaign-complete` | Draft the outcome, run cleanup, obtain the user's approval, and close the campaign. |
 | `campaign-resume` | Rebuild context and continue the current work when the user wants to resume. |
 | `campaign-cleanup` | Tidy the record and surface consequential discrepancies. Usually delegated. |
+
+For a fresh project, `repo-init` can prepare the documentation before the first
+campaign. Existing projects can start a campaign directly. Setup is optional and
+safe to revisit; each campaign reuses the project docs rather than repeating setup.
 
 A typical loop is `campaign-start → chunk-start → work → chunk-review →
 chunk-complete`, repeated as needed, then `campaign-review → campaign-complete`.
@@ -76,7 +82,7 @@ the same work and records the limitation. No custom subagent registration is req
 
 ## Install
 
-The same eight skill directories are used by both harnesses. The installer requires
+The same skill directories are used by both harnesses. The installer requires
 Python 3.9+ only during installation; using the workflow requires no scripts, hooks,
 services, or permission configuration.
 
@@ -111,7 +117,7 @@ privileges; use plugin installation if symlinks are unavailable.
   `$campaign-start`. See [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).
 - Claude Code discovers project skills under `.claude/skills/`; invoke
   `/campaign-start`. See [Claude Code skill documentation](https://code.claude.com/docs/en/skills).
-- Other harnesses can load the same `SKILL.md` files directly. Copy all eight
+- Other harnesses can load the same `SKILL.md` files directly. Copy all the skill
   directories together so their relative links remain usable. Ask the agent to
   read a skill if its harness has no skill discovery.
 
@@ -184,8 +190,10 @@ so reproducibility does not depend on tags.
 ## Moving from the previous kit
 
 Read [migration notes](docs/migration.md) before updating an existing installation.
-The engineering and `exp-` skill pairs have been consolidated; `repo-init`,
-`exp-run`, and `harden` are no longer separate workflow skills.
+The engineering and `exp-` skill pairs have been consolidated. The current
+`repo-init` is optional documentation setup; the old kit's Git and installation
+preflight requirements do not apply. `exp-run` and `harden` are no longer separate
+workflow skills.
 
 ## Maintaining this repository
 

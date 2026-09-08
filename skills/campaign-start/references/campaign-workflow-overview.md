@@ -7,9 +7,15 @@ does not make useful work invalid.
 
 ## Project documentation and smaller tasks
 
+`repo-init` introduces or refreshes repository-level documentation, usually once
+near the start of a project. It can be revisited explicitly as the project changes.
+`campaign-start` opens each campaign using the existing project context; it does not
+repeat repo setup or require an initialization marker. Completion skills continue
+to maintain the project guides affected by their work.
+
 Use project documentation to explain the current project and campaign records to
 preserve each effort's intent, reasoning, and evidence. See the
-[repository documentation guide](repository-documentation.md) when introducing
+[repository documentation guide](../../repo-init/references/repository-documentation.md) when introducing
 README, AGENTS.md, development or design guidance, or deciding where a finding belongs.
 Adapt existing docs and add files only when useful; this is not a setup checklist.
 

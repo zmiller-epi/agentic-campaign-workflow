@@ -33,7 +33,7 @@ scope, mark substantive work complete, or close a campaign. Formatting differenc
 empty optional sections, and missing per-chunk tags are not workflow failures.
 
 Read relevant project guides to spot guidance made stale by the campaign. Use the
-[repository documentation guide](../campaign-start/references/repository-documentation.md)
+[repository documentation guide](../repo-init/references/repository-documentation.md)
 when deciding where lasting information belongs. With campaign-only ownership,
 report needed repo-level changes to the parent; do not edit those project files.
 Keep `AGENTS.md` and `CLAUDE.md` small and avoid duplicating campaign history there.
