@@ -27,10 +27,37 @@ The [workflow overview](skills/campaign-start/references/campaign-workflow-overv
 holds the conventions. Agents read it when needed, especially during cleanup.
 It is not imported into every session through `AGENTS.md` or `CLAUDE.md`.
 
+## Project documentation and small tasks
+
+For the project using this workflow, a useful starting layout is:
+
+```text
+README.md                 # purpose, quick start, and documentation links
+AGENTS.md                 # brief agent guidance and pointers
+CLAUDE.md -> AGENTS.md     # shared instructions
+docs/
+  development.md          # setup, common commands, and checks
+  design.md               # current architecture, methods, and assumptions
+  notes/                  # standalone investigations and small tasks
+  campaigns/              # larger efforts and their records
+```
+
+Use existing project conventions and create these files only when they have useful
+content. Small tasks can leave one optional note; straightforward fixes may need
+only a commit and relevant checks. Changes to setup, usage, or design should update
+the corresponding project guide and link back to campaign or note evidence as useful.
+
+The [repository documentation guide](skills/repo-init/references/repository-documentation.md)
+explains the roles and how they fit together. Repo-init sets up or refreshes these
+docs; campaign-start uses the existing context for each new campaign. Completion
+skills maintain affected guides, and campaign cleanup flags stale guidance for the
+parent to address. The installer itself leaves project docs alone.
+
 ## The skills
 
 | Skill | Purpose |
 | --- | --- |
+| `repo-init` | Establish useful project docs and shared agent instructions; revisit explicitly when repo setup needs attention. |
 | `campaign-start` | Interview the user, explore relevant context, and write the initial spec and plan. |
 | `chunk-start` | Get oriented and begin implementing or investigating the next chunk. |
 | `chunk-review` | Use independent subagents to review the work and write a report in `notes/`. |
@@ -39,6 +66,10 @@ It is not imported into every session through `AGENTS.md` or `CLAUDE.md`.
 | `campaign-complete` | Draft the outcome, run cleanup, obtain the user's approval, and close the campaign. |
 | `campaign-resume` | Rebuild context and continue the current work when the user wants to resume. |
 | `campaign-cleanup` | Tidy the record and surface consequential discrepancies. Usually delegated. |
+
+For a fresh project, `repo-init` can prepare the documentation before the first
+campaign. Existing projects can start a campaign directly. Setup is optional and
+safe to revisit; each campaign reuses the project docs rather than repeating setup.
 
 A typical loop is `campaign-start → chunk-start → work → chunk-review →
 chunk-complete`, repeated as needed, then `campaign-review → campaign-complete`.
@@ -51,7 +82,7 @@ the same work and records the limitation. No custom subagent registration is req
 
 ## Install
 
-The same eight skill directories are used by both harnesses. The installer requires
+The same skill directories are used by both harnesses. The installer requires
 Python 3.9+ only during installation; using the workflow requires no scripts, hooks,
 services, or permission configuration.
 
@@ -61,15 +92,32 @@ From this checkout:
 python3 scripts/install.py --project /path/to/your/project --harness both
 ```
 
-Use `--harness codex` or `--harness claude` for one harness. The installer copies
-only the skill directories, refuses to replace existing ones, and leaves your
-instruction files, settings, and campaign records alone.
+The installer keeps one copy of each skill in `.agents/skills/`. With
+`--harness both` or `--harness claude`, it creates a relative symlink for each skill
+under `.claude/skills/`, pointing to that shared copy. `--harness codex` installs
+only the shared files.
+
+```text
+your-project/
+  .agents/skills/campaign-start/          # the actual skill files
+  .claude/skills/campaign-start           # -> ../../.agents/skills/campaign-start
+```
+
+Edits to an installed skill are immediately shared between both harnesses.
+The installer uses individual skill links so other Claude skills and settings can
+coexist. It refuses to replace existing copies or links, and leaves project
+instruction files, settings, and campaign records alone. Changes in this kit's
+source checkout still require updating the installed files.
+
+Relative links remain valid when a project is moved or checked out in another
+worktree. On Windows, symlink creation requires Developer Mode or appropriate
+privileges; use plugin installation if symlinks are unavailable.
 
 - Codex discovers project skills under `.agents/skills/`; invoke
   `$campaign-start`. See [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).
 - Claude Code discovers project skills under `.claude/skills/`; invoke
   `/campaign-start`. See [Claude Code skill documentation](https://code.claude.com/docs/en/skills).
-- Other harnesses can load the same `SKILL.md` files directly. Copy all eight
+- Other harnesses can load the same `SKILL.md` files directly. Copy all the skill
   directories together so their relative links remain usable. Ask the agent to
   read a skill if its harness has no skill discovery.
 
@@ -100,14 +148,31 @@ If a pointer helps discovery, add a few lines to its existing `AGENTS.md` or
 
 ```markdown
 Campaigns normally live in docs/campaigns/.
+Use docs/notes/ for standalone findings worth preserving.
 Use the campaign skills when working on one. Read
 .agents/skills/campaign-start/references/campaign-workflow-overview.md
 when workflow context is useful. Keep campaign details in the campaign folder.
 ```
 
-For Claude-only installation, substitute `.claude/skills/`. Keep project facts
-in the project's own instruction files. Do not replace them with this repository's
-`AGENTS.md` or `CLAUDE.md`, which describe maintaining the kit itself.
+Use the same `.agents/skills/` path for Claude-only installation: it is the shared
+storage location there too.
+
+To share project instructions, keep them in `AGENTS.md` and make `CLAUDE.md` a
+relative symlink to it. This repository uses that arrangement. In a project that
+already has `AGENTS.md` and has no `CLAUDE.md`, run from the project root:
+
+```bash
+ln -s AGENTS.md CLAUDE.md
+```
+
+If both instruction files already exist, reconcile any distinct content before
+replacing either. The installer does not do that merge or create this link for you.
+For Claude-specific additions, use a regular `CLAUDE.md` containing `@AGENTS.md`
+followed by those additions. Both sharing approaches are documented by
+[Claude Code](https://code.claude.com/docs/en/memory#agentsmd).
+
+Keep project facts in the project's own instruction files. Do not copy this
+repository's `AGENTS.md` into another project: it describes maintaining the kit itself.
 
 ## Git defaults
 
@@ -125,8 +190,10 @@ so reproducibility does not depend on tags.
 ## Moving from the previous kit
 
 Read [migration notes](docs/migration.md) before updating an existing installation.
-The engineering and `exp-` skill pairs have been consolidated; `repo-init`,
-`exp-run`, and `harden` are no longer separate workflow skills.
+The engineering and `exp-` skill pairs have been consolidated. The current
+`repo-init` is optional documentation setup; the old kit's Git and installation
+preflight requirements do not apply. `exp-run` and `harden` are no longer separate
+workflow skills.
 
 ## Maintaining this repository
 

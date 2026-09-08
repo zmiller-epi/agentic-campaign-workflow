@@ -1,6 +1,6 @@
 # Moving to Campaign Workflow
 
-This revision replaces the Claude-only kit with eight shared skills. Existing
+This revision replaces the Claude-only kit with shared skills for both harnesses. Existing
 campaign records do not need a bulk migration.
 
 ## Update the installation
@@ -26,6 +26,37 @@ The old `settings.json` allowlist is not required by this workflow. Leave existi
 settings alone unless you deliberately want to edit them; this revision installs
 no replacement permissions.
 
+## Moving from duplicate skill copies to links
+
+The installer now uses `.agents/skills/` as the shared storage location, including
+for Claude-only installs. Claude discovers relative links to those skills under
+`.claude/skills/`. Each skill still has the same name and contents.
+
+If both locations already contain copies, compare and preserve customizations
+before replacing them. Back up the kit's installed skill folders in both locations,
+then remove only those entries and rerun the installer to get one shared copy and
+Claude links. Reapply your customizations to the shared files. Other installed
+skills, Claude settings, and campaign records can stay as they are.
+
+For shared project instructions, merge useful content into `AGENTS.md` before
+replacing an existing `CLAUDE.md` with a relative link to it. This is separate from
+skill installation; the installer leaves project instruction files alone.
+Commit both the shared files and their links so fresh checkouts have everything.
+
+## Adding project documentation
+
+The shared setup now includes optional guidance for README.md, a small AGENTS.md,
+development and design guides, and standalone notes under `docs/notes/`. Existing
+project documents can keep their names and locations. Add or improve them as useful;
+there is no required scaffold or new lifecycle for small tasks. Use `repo-init`
+for initial or deliberately revisited repo documentation setup. Campaign-start
+uses the existing project docs and does not repeat that setup for each campaign.
+
+Campaign work updates affected current guides and links back to its own decisions
+and evidence. Keep old campaign records intact. See the
+[repository documentation guide](../skills/repo-init/references/repository-documentation.md)
+for the convention shipped with the skills.
+
 ## Keep historical campaigns readable
 
 Resume campaigns in their existing locations, including
@@ -40,7 +71,7 @@ headings do not invalidate previous work.
 | `REVIEW.md` | Keep past reviews; put new review reports in `notes/`. |
 | `experiments/` and `exp-run` | Keep old runs; new run notes are part of chunk work and normally live in `notes/`. |
 | `RESULTS.md` | Keep existing tables/evidence; create `RESULT.md` when useful and link to them. |
-| `repo-init` | Install skills, then let campaign-start create the campaign folder as needed. |
+| Legacy `repo-init` | Install skills separately. The new repo-init sets up or refreshes project docs and shared instructions, without Git/settings preflight gates or a mandatory initialization state. |
 | `harden` | Ask for focused engineering work; it is outside the campaign lifecycle. |
 
 Avoid maintaining two competing final conclusions: treat an existing `RESULTS.md`
