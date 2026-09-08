@@ -1,0 +1,2 @@
+# Keep local development configuration out of source archives.
+.claude/settings.local.json export-ignore

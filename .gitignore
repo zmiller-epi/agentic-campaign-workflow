@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local harness settings
+.claude/settings.local.json
+
+# Python validation artifacts
+__pycache__/
+*.pyc

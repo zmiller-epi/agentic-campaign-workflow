@@ -1,0 +1,23 @@
+{
+  "name": "campaign-workflow",
+  "version": "0.2.0",
+  "description": "Lightweight engineering and research campaigns with shared Markdown records.",
+  "author": {
+    "name": "zmiller-epi"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Campaign Workflow",
+    "shortDescription": "Shared campaigns for engineering and research",
+    "longDescription": "Interview, plan, implement, review, and record outcomes across sessions using a small set of Markdown documents.",
+    "developerName": "zmiller-epi",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Start a campaign to plan and carry out my next engineering or research project."
+    ]
+  }
+}
