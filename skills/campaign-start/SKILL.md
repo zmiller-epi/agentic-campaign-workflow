@@ -12,10 +12,22 @@ question. Use a question tool when available, or ask in conversation, in small r
 
 Explore the relevant project and previous campaigns as the conversation develops.
 Use what you learn to clarify the intended outcome, uncertainty, and tradeoffs.
+Probe consequential assumptions in both the request and your proposed approach: what
+must be true for the work to be useful, what evidence supports it, and what would
+change the direction. Distinguish confirmed facts from assumptions to validate.
+
+Work with the user to define concrete campaign completion criteria. Translate vague
+goals into observable outcomes and the checks, measurements, or artifacts that will
+establish them, including thresholds or acceptance examples where useful. For research,
+clarify what evidence is sufficient to stop and how negative or inconclusive results
+will be judged; completion need not depend on confirming the hypothesis.
+
 Follow the user's answers instead of a fixed checklist; do not ask them to repeat
 facts already available. Stop interviewing when there is enough shared understanding
-to write a useful initial spec and begin the next chunk. Unresolved details can
-remain explicit questions. Do not invent interview answers while waiting for input.
+to draft a spec and plan for approval, including completion criteria and consequential
+assumptions. Resolve unknowns that would change the goal or criteria, or explicitly
+propose how the plan will investigate them. Other details can remain open questions.
+Do not invent interview answers while waiting for input.
 
 Read [the overview](references/campaign-workflow-overview.md) when establishing
 the workflow or resolving a convention. It provides context, not extra interview gates.
@@ -34,7 +46,7 @@ Preserve existing changes; a dirty tree does not prevent interviewing or draftin
 
 Adapt the templates in [assets](assets) into the campaign folder:
 
-- [SPEC.md](assets/SPEC.md): purpose, kind, scope, success evidence, and open questions.
+- [SPEC.md](assets/SPEC.md): purpose, kind, scope, completion criteria, assumptions, and open questions.
 - [PLAN.md](assets/PLAN.md): session-sized chunks, with the next chunk concrete and later work rough.
 - [DECISIONS.md](assets/DECISIONS.md): decisions already made and their reasons; otherwise a brief empty log.
 - [RESULT.md](assets/RESULT.md): a draft placeholder for the eventual outcome.
@@ -45,9 +57,19 @@ comparisons, or both. Plan around outcomes, not one run per chunk. Include relev
 prior-campaign links and where the next session should begin. Drop unhelpful template
 prompts instead of filling them with boilerplate.
 
-Set the campaign status to active once the initial direction is established; leave
-it draft if the interview is still waiting on a consequential answer.
-Make a focused checkpoint commit on the working branch when Git is available.
-Show the user the spec, plan, unresolved choices, and proposed next chunk.
-This skill establishes the campaign; begin implementation only when the user's
-request also asks to proceed.
+Keep the campaign status draft while preparing the spec and plan and awaiting
+user approval. Make a focused checkpoint commit of the draft records on the working
+branch when Git is available. Show the user the spec, plan, completion criteria,
+consequential assumptions, unresolved choices, and proposed next chunk, and ask for
+approval of that plan.
+
+**Do not begin implementation, experiments, or other campaign chunks until the user
+explicitly approves the presented plan.** Interviewing, read-only context gathering,
+and drafting or revising campaign records may continue before approval. A request to
+start a campaign or to proceed is not approval of a plan the user has not seen; silence
+is not approval either. Reuse approval already given for the unchanged plan. If a
+revision materially changes the proposed scope, approach, or completion criteria,
+show the revision and obtain approval before executing it.
+
+After approval, record it and the date in `PLAN.md`, set the campaign status to active,
+and proceed with the approved next chunk when execution is within the user's request.

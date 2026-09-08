@@ -58,7 +58,7 @@ parent to address. The installer itself leaves project docs alone.
 | Skill | Purpose |
 | --- | --- |
 | `repo-init` | Establish useful project docs and shared agent instructions; revisit explicitly when repo setup needs attention. |
-| `campaign-start` | Interview the user, explore relevant context, and write the initial spec and plan. |
+| `campaign-start` | Surface assumptions, define completion criteria, and obtain user approval of the initial spec and plan before execution. |
 | `chunk-start` | Get oriented and begin implementing or investigating the next chunk. |
 | `chunk-review` | Use independent subagents to review the work and write a report in `notes/`. |
 | `chunk-complete` | Record the evidence, update the plan, checkpoint the work, and run cleanup. |

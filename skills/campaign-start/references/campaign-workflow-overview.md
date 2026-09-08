@@ -36,8 +36,8 @@ visible in the current checkout; use read-only Git inspection when helpful.
 
 | Record | Keep here |
 | --- | --- |
-| `SPEC.md` | Purpose, scope, desired behavior or research question, success evidence, and consequential unknowns. |
-| `PLAN.md` | The current route through session-sized chunks, status, evidence links, and the next action. |
+| `SPEC.md` | Purpose, scope, desired behavior or research question, completion criteria and evidence, assumptions, and consequential unknowns. |
+| `PLAN.md` | The current route through session-sized chunks, plan approval, status, evidence links, and the next action. |
 | `DECISIONS.md` | Choices that matter later, why they were made, and what might reopen them. |
 | `RESULT.md` | What came out of the campaign, supporting evidence, limitations, follow-ups, and closure approval. |
 | `notes/` | Reviews, exploratory thoughts, run records, handoffs, and material that does not belong above. |
@@ -56,14 +56,28 @@ the user approved. These are readable conventions, not parser requirements.
 
 Interview conversationally. Ask whether this effort is engineering, an experiment,
 or a mixture, and listen for the outcome the user actually wants. Explore the
-repository and useful previous campaigns to inform follow-up questions. Ask only
-questions that matter to the next decision; no coverage questionnaire is required.
+repository and useful previous campaigns to inform follow-up questions. Probe
+consequential assumptions, distinguish them from confirmed facts, and clarify what
+evidence would validate them or change the direction. Ask only questions that matter
+to the next decision; no coverage questionnaire is required.
 
 For engineering, success may mean a behavior, interface, or verified capability.
 For experiments, discuss the question, comparisons, inputs, interpretation, and
 resources as relevant. Mixed campaigns may build infrastructure and then use it
 to answer a question. A negative or inconclusive result can complete a well-run
-investigation.
+investigation. Agree on concrete campaign completion criteria and the evidence
+needed to assess them, including acceptance examples or thresholds where useful.
+For research, define sufficient evidence and stopping conditions, including how
+negative or inconclusive results could meet the criteria.
+
+Present the spec, plan, completion criteria, assumptions, and unresolved choices for
+explicit user approval before beginning implementation, experiments, or other campaign
+chunks. Interviewing, read-only context gathering, and drafting campaign records can
+continue while approval is pending; keep the campaign draft and the next action in
+`PLAN.md` focused on review or revision. A request to start or proceed does not approve
+an unseen plan. Once approved, record approval and date in `PLAN.md` and mark the
+campaign active. Reuse approval for an unchanged plan; present material revisions to
+scope, approach, or completion criteria for approval before executing them.
 
 A chunk aims at something coherent that fits one working session. Describe its
 outcome, the work currently expected, and how to assess it. Detail the next chunk;
