@@ -32,8 +32,11 @@ approval, decisions, or run history; do not change scientific interpretations, e
 scope, mark substantive work complete, or close a campaign. Formatting differences,
 empty optional sections, and missing per-chunk tags are not workflow failures.
 
-Keep stable project guidance in appropriate project documentation. Do not grow
-`AGENTS.md` or `CLAUDE.md` with campaign history or process checklists.
+Read relevant project guides to spot guidance made stale by the campaign. Use the
+[repository documentation guide](../campaign-start/references/repository-documentation.md)
+when deciding where lasting information belongs. With campaign-only ownership,
+report needed repo-level changes to the parent; do not edit those project files.
+Keep `AGENTS.md` and `CLAUDE.md` small and avoid duplicating campaign history there.
 This pass does not change implementation, run expensive experiments, commit, merge,
 tag, delete branches, or modify harness settings.
 

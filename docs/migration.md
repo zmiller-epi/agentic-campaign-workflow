@@ -43,6 +43,18 @@ replacing an existing `CLAUDE.md` with a relative link to it. This is separate f
 skill installation; the installer leaves project instruction files alone.
 Commit both the shared files and their links so fresh checkouts have everything.
 
+## Adding project documentation
+
+The shared setup now includes optional guidance for README.md, a small AGENTS.md,
+development and design guides, and standalone notes under `docs/notes/`. Existing
+project documents can keep their names and locations. Add or improve them as useful;
+there is no required scaffold or new lifecycle for small tasks.
+
+Campaign work updates affected current guides and links back to its own decisions
+and evidence. Keep old campaign records intact. See the
+[repository documentation guide](../skills/campaign-start/references/repository-documentation.md)
+for the convention shipped with the skills.
+
 ## Keep historical campaigns readable
 
 Resume campaigns in their existing locations, including

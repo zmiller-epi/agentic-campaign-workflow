@@ -5,6 +5,20 @@ Its documents help humans and agents remember what matters. Adapt the workflow
 to the work and the user's preferences; a missing heading or skipped ceremony
 does not make useful work invalid.
 
+## Project documentation and smaller tasks
+
+Use project documentation to explain the current project and campaign records to
+preserve each effort's intent, reasoning, and evidence. See the
+[repository documentation guide](repository-documentation.md) when introducing
+README, AGENTS.md, development or design guidance, or deciding where a finding belongs.
+Adapt existing docs and add files only when useful; this is not a setup checklist.
+
+Work outside a campaign can leave an optional note in
+`docs/notes/YYYY-MM-DD-topic.md`. A small fix may need only a commit and relevant
+checks. Both small tasks and campaign chunks update affected project guides when
+they change how the project is used or understood, linking back to supporting notes
+or campaign records. Keep tentative conclusions clearly labeled.
+
 ## Shared record
 
 New campaigns normally live in `docs/campaigns/<name>/`. Reuse established project
@@ -115,7 +129,9 @@ unrecorded decisions, orphaned findings, broken links, and duplicated or misplac
 material. It can fix obvious clerical issues and report uncertainty. It does not
 invent missing research history, reinterpret conclusions, approve completion, or
 turn cosmetic preferences into gates. Put substantial cleanup findings in a note;
-a short summary suffices for trivial edits.
+a short summary suffices for trivial edits. Check for affected project guidance too;
+with campaign-only ownership, report needed repo-level updates to the parent. The
+parent updates those guides and keeps the campaign's supporting history linked.
 
 `campaign-complete` prepares `RESULT.md` for a completed or abandoned campaign,
 runs cleanup, then shows the concrete outcome and unresolved limitations to the user.

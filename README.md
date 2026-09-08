@@ -27,6 +27,31 @@ The [workflow overview](skills/campaign-start/references/campaign-workflow-overv
 holds the conventions. Agents read it when needed, especially during cleanup.
 It is not imported into every session through `AGENTS.md` or `CLAUDE.md`.
 
+## Project documentation and small tasks
+
+For the project using this workflow, a useful starting layout is:
+
+```text
+README.md                 # purpose, quick start, and documentation links
+AGENTS.md                 # brief agent guidance and pointers
+CLAUDE.md -> AGENTS.md     # shared instructions
+docs/
+  development.md          # setup, common commands, and checks
+  design.md               # current architecture, methods, and assumptions
+  notes/                  # standalone investigations and small tasks
+  campaigns/              # larger efforts and their records
+```
+
+Use existing project conventions and create these files only when they have useful
+content. Small tasks can leave one optional note; straightforward fixes may need
+only a commit and relevant checks. Changes to setup, usage, or design should update
+the corresponding project guide and link back to campaign or note evidence as useful.
+
+The [repository documentation guide](skills/campaign-start/references/repository-documentation.md)
+explains the roles and how they fit together. Campaign-start uses it when setting up
+docs; completion skills maintain affected guides, and campaign cleanup flags stale
+guidance for the parent to address. The installer itself leaves project docs alone.
+
 ## The skills
 
 | Skill | Purpose |
@@ -117,6 +142,7 @@ If a pointer helps discovery, add a few lines to its existing `AGENTS.md` or
 
 ```markdown
 Campaigns normally live in docs/campaigns/.
+Use docs/notes/ for standalone findings worth preserving.
 Use the campaign skills when working on one. Read
 .agents/skills/campaign-start/references/campaign-workflow-overview.md
 when workflow context is useful. Keep campaign details in the campaign folder.
