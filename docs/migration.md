@@ -26,6 +26,23 @@ The old `settings.json` allowlist is not required by this workflow. Leave existi
 settings alone unless you deliberately want to edit them; this revision installs
 no replacement permissions.
 
+## Moving from duplicate skill copies to links
+
+The installer now uses `.agents/skills/` as the shared storage location, including
+for Claude-only installs. Claude discovers relative links to those skills under
+`.claude/skills/`. Each skill still has the same name and contents.
+
+If both locations already contain copies, compare and preserve customizations
+before replacing them. Back up the kit's installed skill folders in both locations,
+then remove only those entries and rerun the installer to get one shared copy and
+Claude links. Reapply your customizations to the shared files. Other installed
+skills, Claude settings, and campaign records can stay as they are.
+
+For shared project instructions, merge useful content into `AGENTS.md` before
+replacing an existing `CLAUDE.md` with a relative link to it. This is separate from
+skill installation; the installer leaves project instruction files alone.
+Commit both the shared files and their links so fresh checkouts have everything.
+
 ## Keep historical campaigns readable
 
 Resume campaigns in their existing locations, including

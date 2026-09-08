@@ -61,9 +61,26 @@ From this checkout:
 python3 scripts/install.py --project /path/to/your/project --harness both
 ```
 
-Use `--harness codex` or `--harness claude` for one harness. The installer copies
-only the skill directories, refuses to replace existing ones, and leaves your
-instruction files, settings, and campaign records alone.
+The installer keeps one copy of each skill in `.agents/skills/`. With
+`--harness both` or `--harness claude`, it creates a relative symlink for each skill
+under `.claude/skills/`, pointing to that shared copy. `--harness codex` installs
+only the shared files.
+
+```text
+your-project/
+  .agents/skills/campaign-start/          # the actual skill files
+  .claude/skills/campaign-start           # -> ../../.agents/skills/campaign-start
+```
+
+Edits to an installed skill are immediately shared between both harnesses.
+The installer uses individual skill links so other Claude skills and settings can
+coexist. It refuses to replace existing copies or links, and leaves project
+instruction files, settings, and campaign records alone. Changes in this kit's
+source checkout still require updating the installed files.
+
+Relative links remain valid when a project is moved or checked out in another
+worktree. On Windows, symlink creation requires Developer Mode or appropriate
+privileges; use plugin installation if symlinks are unavailable.
 
 - Codex discovers project skills under `.agents/skills/`; invoke
   `$campaign-start`. See [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).
@@ -105,9 +122,25 @@ Use the campaign skills when working on one. Read
 when workflow context is useful. Keep campaign details in the campaign folder.
 ```
 
-For Claude-only installation, substitute `.claude/skills/`. Keep project facts
-in the project's own instruction files. Do not replace them with this repository's
-`AGENTS.md` or `CLAUDE.md`, which describe maintaining the kit itself.
+Use the same `.agents/skills/` path for Claude-only installation: it is the shared
+storage location there too.
+
+To share project instructions, keep them in `AGENTS.md` and make `CLAUDE.md` a
+relative symlink to it. This repository uses that arrangement. In a project that
+already has `AGENTS.md` and has no `CLAUDE.md`, run from the project root:
+
+```bash
+ln -s AGENTS.md CLAUDE.md
+```
+
+If both instruction files already exist, reconcile any distinct content before
+replacing either. The installer does not do that merge or create this link for you.
+For Claude-specific additions, use a regular `CLAUDE.md` containing `@AGENTS.md`
+followed by those additions. Both sharing approaches are documented by
+[Claude Code](https://code.claude.com/docs/en/memory#agentsmd).
+
+Keep project facts in the project's own instruction files. Do not copy this
+repository's `AGENTS.md` into another project: it describes maintaining the kit itself.
 
 ## Git defaults
 
