@@ -1,9 +1,12 @@
 ---
 name: chunk-complete
-description: Close a finished campaign chunk, record evidence and decisions, update the living plan, checkpoint work, and run documentation cleanup.
+description: Close a finished campaign chunk, record evidence, update and clean up documentation, checkpoint work, and hand off the next action to a fresh session.
 ---
 
 # Complete a chunk
+
+Chunk completion ends the current working session. Finish verification and the
+documentation handoff for this chunk; do not start another chunk as part of completion.
 
 Resolve the campaign and chunk. Compare the current work with its outcome and
 verification in `PLAN.md`, using relevant review reports and actual evidence.
@@ -25,6 +28,10 @@ or methods. Use the
 when deciding where information belongs. Keep the detailed decision history and
 evidence in the campaign, and link to them from current guidance where useful.
 
+Leave a handoff in `PLAN.md` with the completed chunk, evidence links, unresolved
+follow-ups, working branch or worktree, and the next chunk or review/closure action.
+Make its first step concrete enough for a fresh session. Leave later chunks planned.
+
 Run [campaign-cleanup](../campaign-cleanup/SKILL.md), preferably in a subagent.
 Give it the selected campaign path and documentation ownership only; it is not alone
 in the workspace and must preserve others' edits. Avoid editing those same documents
@@ -32,11 +39,16 @@ until it returns. Wait for its result, inspect any edits, and address consequent
 discrepancies without treating cosmetic gaps as blockers. Use the same pass locally
 if delegation is unavailable.
 
-Make a focused checkpoint commit on the working branch, including relevant work and
-documentation. Inspect the staged diff so unrelated changes are not swept in.
-No tag, merge, or branch deletion is part of chunk completion.
+Make a focused checkpoint commit on the working branch, including relevant work,
+documentation, and the handoff. Inspect the staged diff so unrelated changes are not
+swept in. No tag, merge, or branch deletion is part of chunk completion.
 
-Tell the user what finished, what evidence supports it, and the next useful action.
-Point to the review or notes and summarize any unresolved follow-ups.
+Tell the user what finished and what evidence supports it, linking the plan and
+relevant review or notes. **Stop here; do not begin the next chunk or automatically
+run campaign review or campaign completion.** Suggest clearing context or starting
+a new session before continuing. Provide a ready-to-use prompt naming the campaign
+path and next action, such as resuming a specific chunk or reviewing the campaign
+after its final chunk. A suggested next action is a handoff, not an instruction to
+execute it in this session. Do not clear context on the user's behalf.
 See [the overview](../campaign-start/references/campaign-workflow-overview.md)
 if shared conventions are unclear.

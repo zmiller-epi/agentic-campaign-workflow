@@ -27,6 +27,10 @@ or perform its pass locally. Wait for it before editing the same records.
 When the user asks to resume or continue, proceed with the next authorized action,
 using [chunk-start](../chunk-start/SKILL.md) for implementation, investigation, or
 unfinished chunk work. Do not stop solely to require another skill invocation.
+Use the recorded handoff and reuse valid approval; a fresh session does not require
+reapproving an unchanged plan. Honor the stop after campaign planning, chunk completion,
+or campaign completion. Do not automatically invoke resume at one of those boundaries
+or treat a broad request to continue as permission to chain through later chunks.
 An orientation-only request ends with the summary. If a real decision or approval
 is pending, explain it and continue independent work while waiting. Do not silently
 reopen a completed or abandoned campaign.

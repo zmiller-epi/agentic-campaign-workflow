@@ -1,9 +1,12 @@
 ---
 name: campaign-start
-description: Start an engineering, experiment, or mixed campaign through a conversational interview, relevant context gathering, and a shared spec and plan.
+description: Plan an engineering, experiment, or mixed campaign interactively, obtain approval of the shared spec and plan, and hand off execution to a fresh session.
 ---
 
 # Start a campaign
+
+This is a planning session. Finish with approved campaign documents and a handoff;
+do not execute campaign chunks as part of this skill, even after plan approval.
 
 Use the user's request and conversation as the starting point. Interview them about
 what they want to build or learn, asking whether this is engineering, an experiment,
@@ -53,9 +56,10 @@ Adapt the templates in [assets](assets) into the campaign folder:
 - `notes/`: an initially empty folder for working notes, run records, and reviews.
 
 Keep the spec suitable for the work: engineering behavior, research question and
-comparisons, or both. Plan around outcomes, not one run per chunk. Include relevant
-prior-campaign links and where the next session should begin. Drop unhelpful template
-prompts instead of filling them with boilerplate.
+comparisons, or both. Size each chunk for one working session, including its focused
+checks, review, and documentation handoff. Plan around outcomes, not one run per chunk.
+Include relevant prior-campaign links and where the next session should begin. Drop
+unhelpful template prompts instead of filling them with boilerplate.
 
 Keep the campaign status draft while preparing the spec and plan and awaiting
 user approval. Make a focused checkpoint commit of the draft records on the working
@@ -72,4 +76,13 @@ revision materially changes the proposed scope, approach, or completion criteria
 show the revision and obtain approval before executing it.
 
 After approval, record it and the date in `PLAN.md`, set the campaign status to active,
-and proceed with the approved next chunk when execution is within the user's request.
+and leave the first chunk planned. Record the campaign path, working branch or worktree,
+approved first chunk, relevant references, and first concrete action in `PLAN.md` so
+execution can begin without this conversation. Checkpoint the approved documents and handoff.
+
+**Stop after the approved planning handoff. Do not start the first chunk or invoke
+an execution skill.** Summarize the approved objectives and link the spec and plan.
+Suggest that the user clear context or start a new session before continuing, and
+give a ready-to-use prompt naming the campaign path and first chunk, for example:
+"Use campaign-resume for docs/campaigns/<name>/ and begin chunk <id>."
+Leave that action for the user's next request; do not clear context on their behalf.
