@@ -5,9 +5,16 @@ campaign records do not need a bulk migration.
 
 ## Update the installation
 
-Back up any customized installed skills before replacing them. The installer refuses
-to overwrite existing directories. Remove only the old kit's installed skill
-directories once backed up, then install the shared set using the README command.
+For a shared installation that you want to use while editing this kit, run the
+README development command with `--dev`. It backs up existing skill copies and
+links before connecting the project to the source checkout. This is a one-time
+conversion; later refreshes use those links. Plugin users should disable the plugin
+for the testing harness before switching to development links.
+
+For a normal copy installation, back up customized skills before replacing them.
+The installer without `--dev` refuses to overwrite existing directories. Remove
+only the old kit's installed skill directories once backed up, then install the shared
+set using the README command.
 
 The old kit shipped these names: `campaign-start`, `campaign-resume`,
 `campaign-review`, `campaign-complete`, `chunk-start`, `chunk-review`,

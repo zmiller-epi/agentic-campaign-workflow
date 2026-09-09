@@ -188,6 +188,13 @@ Resolve those links from the loaded skill file, not the project working director
 Campaign paths are relative to the user's project. Copy the full skills set together;
 shared templates and this overview travel inside `campaign-start`.
 
+During workflow development, projects can link their installed skills to one source
+checkout using the installer's `--dev` option. Use [campaign-refresh](../../campaign-refresh/SKILL.md)
+when asked to reload those instructions in an ongoing task, or pull source updates
+before reloading. Refresh is explicit; it does not run on a timer, restart campaigns,
+or retroactively invalidate prior work. Preserve the consuming project's records and
+approval boundaries while adopting changed instructions.
+
 Use the harness's available tools for questions, files, Git, and delegation.
 If a named helper is not registered, read its linked `SKILL.md` and follow it.
 If supporting material is unavailable, preserve the same document roles using

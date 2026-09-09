@@ -65,6 +65,7 @@ parent to address. The installer itself leaves project docs alone.
 | `campaign-review` | Review the whole campaign in depth and write a report in `notes/`. |
 | `campaign-complete` | Draft the outcome, run cleanup, obtain the user's approval, and close the campaign. |
 | `campaign-resume` | Rebuild context and continue the current work when the user wants to resume. |
+| `campaign-refresh` | Reread updated workflow instructions in the current task; optionally pull the shared development source. |
 | `campaign-cleanup` | Tidy the record and surface consequential discrepancies. Usually delegated. |
 
 For a fresh project, `repo-init` can prepare the documentation before the first
@@ -82,9 +83,9 @@ the same work and records the limitation. No custom subagent registration is req
 
 ## Install
 
-The same skill directories are used by both harnesses. The installer requires
-Python 3.9+ only during installation; using the workflow requires no scripts, hooks,
-services, or permission configuration.
+The same skill directories are used by both harnesses. The installer and optional
+development refresh helper require Python 3.9+. The campaign workflow otherwise
+uses Markdown instructions, with no hooks, services, or permission configuration.
 
 From this checkout:
 
@@ -105,8 +106,8 @@ your-project/
 
 Edits to an installed skill are immediately shared between both harnesses.
 The installer uses individual skill links so other Claude skills and settings can
-coexist. It refuses to replace existing copies or links, and leaves project
-instruction files, settings, and campaign records alone. Changes in this kit's
+coexist. The default copy mode refuses to replace existing copies or links, and
+leaves project instruction files, settings, and campaign records alone. Changes in this kit's
 source checkout still require updating the installed files.
 
 Relative links remain valid when a project is moved or checked out in another
@@ -124,6 +125,71 @@ privileges; use plugin installation if symlinks are unavailable.
 Start a fresh session if newly installed skills are not visible. Keep installed
 skills versioned with the project if its worktrees should inherit them; otherwise
 install them in each checkout that needs them.
+
+### Develop skills across projects
+
+While editing this kit, connect each test project to the same source checkout once:
+
+```bash
+python3 scripts/install.py --project /path/to/your/project --harness both --dev
+```
+
+Then, in a project task, say:
+
+> Refresh campaign skills, then continue.
+
+Or, to fetch upstream updates first:
+
+> Pull the latest campaign skills and refresh, then continue.
+
+You can also invoke `$campaign-refresh` in Codex or `/campaign-refresh` in Claude.
+If the current task has not discovered the new skill yet, ask it to read
+`.agents/skills/campaign-refresh/SKILL.md` directly and follow it.
+
+Development mode links each `.agents/skills/<name>` to this checkout's `skills/<name>`;
+Claude links still point to those shared project entries. All linked projects on this
+machine see saved source edits, including uncommitted changes and branch switches.
+Rerunning `--dev` is safe: correct links stay in place, new skills get links, and
+obsolete links into this source are retired. Other installed skills are preserved.
+Refresh stops on a conflicting local skill; only an explicit installer conversion
+backs up and replaces an existing copy.
+
+Keep this source checkout at a stable location; rerun the installer from its new
+location if you move it. Each machine needs its own checkout and development setup.
+
+When converting an existing copy installation, `--dev` preserves replaced skill
+folders and links under `.agents/campaign-workflow-backups/dev-<unique-id>/`, outside
+skill discovery. The backup mirrors the original project paths and is printed by the
+installer. Customizations remain in that backup; compare and deliberately apply any
+shared changes to the source. An installation failure restores the replaced entries.
+Project instructions, settings, campaign records, and unrelated skills stay intact.
+
+For plugin-installed test projects, disable the Campaign Workflow plugin for that
+harness before using development links so there is one active copy of the skills.
+The installer does not change plugin installations. Development links contain local
+absolute paths; keep them local rather than committing them for other machines.
+The default copy installation and plugin packaging remain useful for distribution.
+
+A plain refresh is local and performs no fetch. A requested pull fast-forwards the
+source checkout's current branch from its configured upstream, normally `main`.
+Use a source checkout tracking `main` when that is the version you want to test.
+Dirty, detached, missing-upstream, or divergent source states stop the pull; local
+refresh still works. Refresh never switches branches, stashes edits, or changes the
+consuming project's Git history. It resynchronizes development links after the pull.
+
+The helper can also be run directly from the consuming project root:
+
+```bash
+python3 .agents/skills/campaign-refresh/scripts/refresh.py --project .
+python3 .agents/skills/campaign-refresh/scripts/refresh.py --project . --pull
+```
+
+It reports the source revision, local edits, files changed by a pull, and paths to
+reread. The agent then rereads the overview and instructions needed for the current
+action before continuing. This updates the instructions used in the current task;
+it does not guarantee that a harness refreshes its skill/tool catalog mid-session.
+Campaign records and prior work remain in place. Any material change to the campaign
+plan still needs user approval.
 
 ### Plugin packaging
 
