@@ -76,18 +76,42 @@ chunks. Interviewing, read-only context gathering, and drafting campaign records
 continue while approval is pending; keep the campaign draft and the next action in
 `PLAN.md` focused on review or revision. A request to start or proceed does not approve
 an unseen plan. Once approved, record approval and date in `PLAN.md` and mark the
-campaign active. Reuse approval for an unchanged plan; present material revisions to
-scope, approach, or completion criteria for approval before executing them.
+campaign active, leaving the first chunk planned. `campaign-start` ends here with a
+documented handoff; it does not execute the approved plan. Reuse approval for an
+unchanged plan; present material revisions to scope, approach, or completion criteria
+for approval before executing them.
 
-A chunk aims at something coherent that fits one working session. Describe its
-outcome, the work currently expected, and how to assess it. Detail the next chunk;
-later chunks can stay rough. A chunk can include setup, several runs, analysis,
-or writing. It need not correspond to one commit or one experiment.
+A chunk aims at something coherent that fits one working session, including focused
+checks, review, and documentation. Describe its outcome, the work currently expected,
+and how to assess it. Detail the next chunk; later chunks can stay rough. A chunk can
+include setup, several runs, analysis, or writing. It need not correspond to one commit
+or one experiment.
 
 Update the plan as new evidence changes the approach. Split unfinished work at a
 session boundary, add or reorder chunks, and drop obsolete work with a short reason.
 Record consequential changes of scope or interpretation in `DECISIONS.md`.
 A changed plan is useful information, not a process failure.
+
+## Session boundaries and handoffs
+
+End the current session's work after approved campaign planning, after chunk
+completion and cleanup, and after campaign completion. Finish the records and
+checkpoints for that boundary, then stop. Do not automatically start the first or
+next chunk, invoke resume, move into campaign review/closure after the final chunk,
+or begin a follow-up campaign. Plan approval authorizes the plan; it does not make
+`campaign-start` an execution skill.
+
+At each boundary, suggest that the user clear context or start a new session before
+continuing. Provide a ready-to-use prompt naming the campaign path and next chunk,
+review, closure, or follow-up action. Do not clear context on the user's behalf.
+For a closed campaign with no follow-ups, simply suggest a fresh session for new work.
+
+Keep a durable handoff in `PLAN.md`: current state and approvals, branch or worktree,
+the next action and its first concrete step, unresolved questions, and relevant
+evidence/notes. The next session must be able to proceed from these records without
+the previous chat history. A later user request to resume or start the named chunk
+can execute that action without reapproving an unchanged plan. Execute one chunk at
+a time and honor the next completion boundary.
 
 ## Evidence and notes
 
@@ -115,12 +139,23 @@ For a chunk, inspect the relevant changes and focused checks. For a campaign,
 examine the accumulated outcome, integration, assumptions, and unresolved findings.
 Do not infer campaign correctness solely from individual chunks being marked done.
 
-Delegate distinct questions to independent subagents when available. Give each the
-campaign path, relevant spec/plan, change or artifact scope, and a clear assignment.
-Reviewers are read-only: ask for evidence-backed findings, uncertainties, and suggested
-dispositions. Do not have reviewers overwrite a shared report or fix code in parallel.
-The parent reconciles their findings and owns the report. If delegation is unavailable
-or fails, complete the review locally and disclose the reduced independence.
+`chunk-review` and `campaign-review` use independent subagents for substantive
+inspection and checks. Keep the calling session to scoping, coordination, and synthesis.
+Read only enough summary context to delegate; give reviewers campaign and reference
+paths, revision/change or artifact scope, relevant user intent and constraints, and
+bounded questions. Use minimal starting context when supported, and let reviewers
+read the detailed evidence themselves. Do not preload full diffs, logs, prior reports,
+or datasets into the parent context.
+
+Reviewers are read-only: they do not fix code or edit shared reports, and their checks
+must not interfere with others' work. Ask for compact, evidence-backed findings,
+check outcomes, limitations, and file/line or artifact references, not raw transcripts
+or exploratory reasoning. The parent reconciles findings, using targeted follow-ups
+or small reference checks rather than repeating the review, and owns the report.
+Retry or reassign failed scopes when possible. If delegation is unavailable or
+coverage remains incomplete, record the gap and hand off to a dedicated review
+session with subagent support; do not perform the detailed review inline or claim
+missing reviews passed. Incomplete coverage cannot establish overall readiness.
 
 Reports in `notes/` should explain the scope/revision reviewed, evidence examined
 or checks run, findings ordered by consequence, and limitations. For each actionable
@@ -136,6 +171,9 @@ not a default prerequisite or an arbitrary light/heavy mode.
 notes and decisions, updates chunk status, and checkpoints the work. An unresolved
 issue that invalidates the outcome keeps the chunk open. Ordinary completion needs
 no new approval when it is already within the user's request.
+After its documentation and cleanup checkpoint, it ends with the session handoff
+above. Later chunks remain planned, including when the next action is campaign review
+or closure rather than implementation.
 
 Run `campaign-cleanup` after chunk completion and while preparing campaign closure.
 It can also help after a large plan change or a resume that reveals stale records.
@@ -160,6 +198,8 @@ closed. A request to run the completion skill starts this process; it does not
 approve an outcome the user has not seen. Reuse approval already given for the
 unchanged result. If cleanup materially changes the result, show the revision.
 Paused work can stay open with a clear next action.
+After recording the approved disposition and checkpointing the documents, stop and
+suggest a fresh session before follow-ups, paused work, or a new campaign.
 
 ## Git collaboration
 

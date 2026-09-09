@@ -1,9 +1,12 @@
 ---
 name: campaign-complete
-description: Prepare a campaign's final result, obtain user approval of the concrete outcome, and close or abandon it with documentation cleanup.
+description: Prepare a campaign's final result, obtain approval, close or abandon it with documentation cleanup, and end with a handoff for a fresh session.
 ---
 
 # Complete a campaign
+
+This skill ends the campaign session. Complete the result and documentation work;
+do not begin follow-up implementation, another chunk, or a new campaign.
 
 Resolve the campaign and intended disposition: completed, abandoned, or paused.
 Read its spec, plan, decisions, evidence, and relevant reviews. Missing ceremonies
@@ -39,6 +42,8 @@ If the user requests changes, revise and present the changed result.
 
 After approval, record the approval and date in `RESULT.md`, update the campaign status
 in `SPEC.md`, and reconcile `PLAN.md`: distinguish finished, deferred, and dropped work.
+Leave durable pointers to any follow-ups, relevant branch or worktree, and a concrete
+resume action for paused work. If nothing remains, say so instead of inventing work.
 Checkpoint these documents on the working branch. If closing introduces only status
 or link edits, a short local consistency check suffices; do not repeat a full review.
 
@@ -48,6 +53,10 @@ specific authorization for those actions. Do not infer permission to merge, push
 publish, delete branches, or rewrite history from closure approval.
 
 Report the outcome and link the result and main review. Distinguish the campaign's
-closure from any Git integration still pending.
+closure from any Git integration still pending. **Stop after completing the authorized
+closure work.** Suggest clearing context or starting a new session before taking up
+follow-ups, resuming paused work, or planning another campaign. When work remains,
+provide a ready-to-use prompt with the campaign path and next action; leave it for
+the user's next request. Do not clear context on their behalf.
 See [the overview](../campaign-start/references/campaign-workflow-overview.md)
 for shared conventions.

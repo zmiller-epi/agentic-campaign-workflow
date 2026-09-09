@@ -58,12 +58,12 @@ parent to address. The installer itself leaves project docs alone.
 | Skill | Purpose |
 | --- | --- |
 | `repo-init` | Establish useful project docs and shared agent instructions; revisit explicitly when repo setup needs attention. |
-| `campaign-start` | Surface assumptions, define completion criteria, and obtain user approval of the initial spec and plan before execution. |
+| `campaign-start` | Clarify objectives and assumptions, obtain approval of the spec and plan, and hand off execution to a fresh session. |
 | `chunk-start` | Get oriented and begin implementing or investigating the next chunk. |
 | `chunk-review` | Use independent subagents to review the work and write a report in `notes/`. |
-| `chunk-complete` | Record the evidence, update the plan, checkpoint the work, and run cleanup. |
-| `campaign-review` | Review the whole campaign in depth and write a report in `notes/`. |
-| `campaign-complete` | Draft the outcome, run cleanup, obtain the user's approval, and close the campaign. |
+| `chunk-complete` | Record evidence, update and clean up docs, checkpoint the work, and stop with a session handoff. |
+| `campaign-review` | Use independent subagents to review the whole campaign and write a report in `notes/`. |
+| `campaign-complete` | Draft the outcome, run cleanup, obtain approval, close the campaign, and end the session's work. |
 | `campaign-resume` | Rebuild context and continue the current work when the user wants to resume. |
 | `campaign-refresh` | Reread updated workflow instructions in the current task; optionally pull the shared development source. |
 | `campaign-cleanup` | Tidy the record and surface consequential discrepancies. Usually delegated. |
@@ -72,14 +72,24 @@ For a fresh project, `repo-init` can prepare the documentation before the first
 campaign. Existing projects can start a campaign directly. Setup is optional and
 safe to revisit; each campaign reuses the project docs rather than repeating setup.
 
-A typical loop is `campaign-start → chunk-start → work → chunk-review →
-chunk-complete`, repeated as needed, then `campaign-review → campaign-complete`.
-Resume wherever useful. Review can uncover another chunk; cleanup does not enforce
-a rigid sequence. Small tasks do not need to become campaigns.
+A typical campaign starts with an interactive planning session using `campaign-start`.
+After the user approves the documents, the agent records approval and stops, suggesting
+clearing context or starting a new session. Each working session covers one chunk:
+`chunk-start → work → chunk-review → chunk-complete`. Completion updates the documents
+and stops with a prompt for the next session; it never starts the next chunk. After
+the final chunk, a later session can run `campaign-review → campaign-complete`, which
+also ends with a fresh-session suggestion before any follow-up work.
 
-Reviews delegate bounded questions when subagents are available. Cleanup receives
-documentation ownership only. With no delegation support, the active agent performs
-the same work and records the limitation. No custom subagent registration is required.
+Handoffs in `PLAN.md` carry the next action, relevant evidence, and valid approvals
+across sessions. Resume wherever useful. Review can uncover another chunk; cleanup
+does not enforce a rigid sequence. Small tasks do not need to become campaigns.
+
+Reviews delegate detailed inspection and checks to independent subagents; the calling
+session scopes the work and synthesizes compact findings into a report. If delegation
+is unavailable, record the review gap and hand off to a dedicated review session instead
+of filling the current context with the review. Cleanup receives documentation ownership
+only and can run locally when delegation is unavailable. No custom subagent registration
+is required.
 
 ## Install
 

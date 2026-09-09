@@ -20,8 +20,9 @@ in the plan, and **begin the work**. This is an execution skill, not only an ori
 Ask about missing information that materially changes the work while continuing
 independent tasks already authorized.
 
-Keep chunks manageable within a session. Update the plan as the approach changes;
-split or defer remaining work when needed, leaving a concrete next action.
+Keep each chunk small enough for one session, including focused checks, review,
+and documentation. Execute only the selected chunk. Update the plan as the approach
+changes; split or defer remaining work when needed, leaving a concrete next action.
 Capture consequential choices in `DECISIONS.md`, and use `notes/` freely for useful
 working context. Make focused checkpoint commits at useful recovery points.
 
@@ -33,5 +34,7 @@ interpretation and disclose missing provenance.
 
 Run checks appropriate to what changed. When the chunk's outcome is ready to assess,
 use [chunk-review](../chunk-review/SKILL.md) if review is part of the current request,
-or leave a clear handoff for review. For workflow questions, consult
+or leave a clear handoff for review. If chunk completion is part of the request,
+use [chunk-complete](../chunk-complete/SKILL.md) and honor its stop and fresh-session
+handoff; do not advance automatically to another chunk. For workflow questions, consult
 [the overview](../campaign-start/references/campaign-workflow-overview.md).

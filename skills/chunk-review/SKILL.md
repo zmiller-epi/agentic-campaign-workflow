@@ -1,34 +1,54 @@
 ---
 name: chunk-review
-description: Review a campaign chunk with independent subagents when available and write an evidence-backed report in the campaign notes.
+description: Delegate a campaign chunk review to independent subagents, keeping detailed inspection out of the calling session, and record an evidence-backed report.
 ---
 
 # Review a chunk
 
-Resolve the campaign and chunk, then read its intended outcome in `SPEC.md` and
-`PLAN.md`, relevant decisions, work changes, and supporting artifacts. Identify the
-revision or diff and any uncommitted changes included so the review's scope is clear.
-If the chunk boundary cannot be reconstructed, state the scope used.
+Keep the calling session focused on coordination and synthesis. Resolve the campaign
+and chunk, and read only enough of `SPEC.md` and `PLAN.md` to identify its intended
+outcome and assessment criteria. Identify the revision/diff boundary, relevant paths,
+and any uncommitted changes included. If the boundary cannot be reconstructed, state
+the scope used. Leave detailed code, artifact, and log inspection to reviewers.
 
-Use subagents when available, assigning distinct questions relevant to this work.
+**Use independent subagents for the substantive review**, assigning bounded questions.
 For example, one can assess agreement with the spec while another examines correctness,
 regressions, or the validity of experimental evidence. Choose the number and scope
 to fit the work rather than requiring a fixed panel.
 
-Give reviewers the campaign path, relevant files or artifacts, and an explicit
-read-only task. They are not alone in the workspace: they must not edit, revert
-others' work, or run checks that interfere with other reviewers. Have them return
-findings with evidence and limitations. Wait for and reconcile their findings;
-do not count unreturned reviews as passes. If delegation is unavailable or fails,
-review locally and disclose that the report lacks those independent checks.
+Start reviewers with minimal context when supported. Give each the campaign path,
+chunk identifier, relevant skill/reference paths, revision/diff or artifact scope,
+the user's relevant intent and constraints, and a specific question. Reviewers read
+the relevant spec, plan, decisions, changes, and supporting artifacts themselves;
+do not preload that evidence in the parent or forward the whole conversation.
 
-Inspect the work and run focused checks within the user's authorization and resource
-limits. Reuse relevant recent evidence when it covers the current work. For research,
-check the question, comparisons, provenance, analysis, and whether the conclusion
-follows from the results. Avoid substituting process compliance for technical review.
+Give reviewers read-only ownership. They are not alone in the workspace: they must
+not edit, revert others' work, fix implementation, overwrite shared reports, or run
+checks that interfere with other reviewers. They perform their assigned review
+directly rather than recursively invoking this coordinating skill.
+
+Have reviewers inspect the work and run focused checks within the user's authorization
+and resource limits. They can reuse relevant recent evidence covering the current work.
+For research, assign checks of the question, comparisons, provenance, analysis, and
+whether the conclusion follows from the results. Avoid substituting process compliance
+for technical review.
+
+Ask for compact results: scope/revision, assessment, findings with supporting file/line
+or artifact references, checks and outcomes, and limitations. Keep full diffs, logs,
+transcripts, and exploratory reasoning out of their replies. Wait for and reconcile
+their findings. Resolve uncertainty through targeted reviewer follow-ups or small
+reference checks; do not duplicate the full inspection in the parent. The parent owns
+the report and plan links.
+
+Retry or reassign failed reviews where possible; never count unreturned reviews as
+passes. If delegation is unavailable or coverage remains incomplete, record the gap
+and provide a handoff for a dedicated review session. Do not fall back to a detailed
+review in the calling session or claim independent checks that did not happen.
+The handoff should identify the missing scope and need for subagent support.
 
 Write a readable report under `notes/`, such as `YYYY-MM-DD-chunk-<name>-review.md`;
 use a new suffix or a linked follow-up for later rounds. Include:
+
 - The scope and revision reviewed, checks/evidence, and reviewer coverage.
 - Findings ordered by impact, each with supporting references and a proposed next action.
 - A clear assessment of readiness and what remains unverified.
@@ -36,7 +56,9 @@ use a new suffix or a linked follow-up for later rounds. Include:
 Confirm findings before presenting them; label uncertain concerns accordingly.
 Link the report and actionable follow-up work from `PLAN.md`, preserving other work.
 Keep old findings traceable when later checks resolve them. Report when no actionable
-issues were found. Review itself does not mark the chunk complete.
+issues were found within the reviewed scope; incomplete coverage cannot establish
+overall readiness. Give the user a concise assessment and consequential findings with
+a link to the report. Review itself does not mark the chunk complete.
 
 For shared report and evidence conventions, see
 [the overview](../campaign-start/references/campaign-workflow-overview.md).
