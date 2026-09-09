@@ -5,6 +5,10 @@ description: Tidy a selected campaign's documentation after chunk completion, be
 
 # Clean up a campaign
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Read [the workflow overview](../campaign-start/references/campaign-workflow-overview.md)
 and the selected campaign's spec, plan, decisions, result, and relevant notes.
 Use current work, reviews, and the supplied context as evidence. Follow project

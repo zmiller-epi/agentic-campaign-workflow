@@ -5,6 +5,10 @@ description: Begin implementing or investigating a campaign chunk, using the cur
 
 # Start a chunk
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Identify the campaign and chunk from the request and current context. If ambiguous,
 ask which one; do not pick between plausible campaigns silently. Read its `SPEC.md`,
 the relevant part of `PLAN.md`, and decisions or notes that affect this work.
@@ -16,7 +20,8 @@ Reuse the working branch or worktree; arrange an appropriate working branch befo
 campaign commits. If this is an existing in-progress chunk, continue it.
 
 Briefly state the intended outcome and how it will be assessed, mark it in progress
-in the plan, and **begin the work**. This is an execution skill, not only an orientation.
+with its start timestamp in the plan, and **begin the work**. This is an execution
+skill, not only an orientation.
 Ask about missing information that materially changes the work while continuing
 independent tasks already authorized.
 

@@ -5,6 +5,10 @@ description: Plan an engineering, experiment, or mixed campaign interactively, o
 
 # Start a campaign
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 This is a planning session. Finish with approved campaign documents and a handoff;
 do not execute campaign chunks as part of this skill, even after plan approval.
 
@@ -75,8 +79,8 @@ is not approval either. Reuse approval already given for the unchanged plan. If 
 revision materially changes the proposed scope, approach, or completion criteria,
 show the revision and obtain approval before executing it.
 
-After approval, record it and the date in `PLAN.md`, set the campaign status to active,
-and leave the first chunk planned. Record the campaign path, working branch or worktree,
+After approval, record it and its timestamp in `PLAN.md`, set the campaign status
+to active, and leave the first chunk planned. Record the campaign path, working branch or worktree,
 approved first chunk, relevant references, and first concrete action in `PLAN.md` so
 execution can begin without this conversation. Checkpoint the approved documents and handoff.
 

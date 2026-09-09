@@ -5,6 +5,10 @@ description: Close a finished campaign chunk, record evidence, update and clean 
 
 # Complete a chunk
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Chunk completion ends the current working session. Finish verification and the
 documentation handoff for this chunk; do not start another chunk as part of completion.
 
@@ -25,8 +29,9 @@ make that change explicit rather than retroactively declaring success.
 
 Record consequential decisions and their reasons in `DECISIONS.md`. Preserve useful
 working or run notes, link review evidence, and carry follow-ups into `PLAN.md`.
-Mark the chunk complete when its current outcome is supported. Routine chunk closure
-within the user's request needs no extra approval ceremony.
+Mark the chunk complete and record its completion timestamp when its current outcome
+is supported. Routine chunk closure within the user's request needs no extra
+approval ceremony.
 
 Update affected project documentation when this chunk changes setup, usage, interfaces,
 or methods. Use the
