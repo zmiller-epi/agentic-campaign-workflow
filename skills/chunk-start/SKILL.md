@@ -33,8 +33,15 @@ details, and output locations in a run note. Distinguish observed results from
 interpretation and disclose missing provenance.
 
 Run checks appropriate to what changed. When the chunk's outcome is ready to assess,
-use [chunk-review](../chunk-review/SKILL.md) if review is part of the current request,
-or leave a clear handoff for review. If chunk completion is part of the request,
-use [chunk-complete](../chunk-complete/SKILL.md) and honor its stop and fresh-session
-handoff; do not advance automatically to another chunk. For workflow questions, consult
+suggest [chunk-review](../chunk-review/SKILL.md) before
+[chunk-complete](../chunk-complete/SKILL.md) or marking the chunk complete, unless
+an existing review covers the current work. If review is part of the current request,
+run it; otherwise leave a ready-to-use handoff naming the campaign and chunk and
+asking for `chunk-review` first, followed by `chunk-complete` after review and any
+blocking findings are resolved. Keep the chunk open while review or blocking findings
+remain unresolved.
+
+If chunk completion is part of the request and the work is ready to close, use
+`chunk-complete` and honor its stop and fresh-session handoff; do not advance
+automatically to another chunk. For workflow questions, consult
 [the overview](../campaign-start/references/campaign-workflow-overview.md).

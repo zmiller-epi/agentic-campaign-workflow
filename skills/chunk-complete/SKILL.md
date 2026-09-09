@@ -8,8 +8,14 @@ description: Close a finished campaign chunk, record evidence, update and clean 
 Chunk completion ends the current working session. Finish verification and the
 documentation handoff for this chunk; do not start another chunk as part of completion.
 
-Resolve the campaign and chunk. Compare the current work with its outcome and
-verification in `PLAN.md`, using relevant review reports and actual evidence.
+Resolve the campaign and chunk. Before marking it complete, suggest running
+[chunk-review](../chunk-review/SKILL.md) if no existing review covers the current
+work. Run it when review is part of the current request, or leave a clear handoff
+for review. Keep the chunk open while that review or its blocking findings remain
+unresolved.
+
+Compare the current work with its outcome and verification in `PLAN.md`, using
+relevant review reports and actual evidence.
 Check that the evidence still covers the current changes. Run any missing focused
 checks that are practical and authorized. Do not claim unperformed checks passed.
 
