@@ -5,6 +5,10 @@ description: Reload updated campaign workflow skills during an existing task, op
 
 # Refresh campaign skills
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Use when the user asks to refresh or reload campaign skills, or pull the latest
 campaign workflow instructions. A plain refresh uses current local files, including
 uncommitted edits. Pull only when the user requests upstream updates.

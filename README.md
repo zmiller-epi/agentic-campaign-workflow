@@ -23,6 +23,12 @@ The four files start small; `RESULT.md` stays a draft until there is an outcome.
 Headings are prompts to adapt, not a schema to satisfy. Existing campaign folders
 and useful records can stay where they are.
 
+New date stamps include hours, minutes, and a UTC offset: `YYYY-MM-DD HH:mm ±HH:MM`
+(for example, `2026-09-08 18:35 -07:00`). Note filenames use
+`YYYY-MM-DD_HH-mm±HHMM-topic.md`, such as `2026-09-08_18-35-0700-review.md`.
+See the [timestamp convention](skills/campaign-start/references/campaign-workflow-overview.md#timestamps)
+for clock and time-zone handling. Existing timestamps and filenames stay intact.
+
 The [workflow overview](skills/campaign-start/references/campaign-workflow-overview.md)
 holds the conventions. Agents read it when needed, especially during cleanup.
 It is not imported into every session through `AGENTS.md` or `CLAUDE.md`.

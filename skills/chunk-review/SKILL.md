@@ -5,6 +5,10 @@ description: Delegate a campaign chunk review to independent subagents, keeping 
 
 # Review a chunk
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Keep the calling session focused on coordination and synthesis. Resolve the campaign
 and chunk, and read only enough of `SPEC.md` and `PLAN.md` to identify its intended
 outcome and assessment criteria. Identify the revision/diff boundary, relevant paths,
@@ -46,8 +50,9 @@ and provide a handoff for a dedicated review session. Do not fall back to a deta
 review in the calling session or claim independent checks that did not happen.
 The handoff should identify the missing scope and need for subagent support.
 
-Write a readable report under `notes/`, such as `YYYY-MM-DD-chunk-<name>-review.md`;
-use a new suffix or a linked follow-up for later rounds. Include:
+Write a readable report under `notes/`, such as
+`YYYY-MM-DD_HH-mm±HHMM-chunk-<name>-review.md`; include the review timestamp
+in the report. Use a new suffix or a linked follow-up for later rounds. Include:
 
 - The scope and revision reviewed, checks/evidence, and reviewer coverage.
 - Findings ordered by impact, each with supporting references and a proposed next action.

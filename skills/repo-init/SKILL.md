@@ -5,6 +5,10 @@ description: Set up or refresh a repository's project documentation and shared a
 
 # Initialize repository documentation
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Use this when the user wants to introduce the workflow to a fresh or existing
 project, or deliberately revisit its repository-level documentation. Resolve the
 project directory from the request and current context before editing.

@@ -1,5 +1,8 @@
 # Result: <name>
 
+**Created:** <YYYY-MM-DD HH:mm ±HH:MM>
+**Updated:** <YYYY-MM-DD HH:mm ±HH:MM>
+
 **Result status:** draft
 **Proposed disposition:** not yet decided
 
@@ -14,3 +17,4 @@ What remains uncertain, incomplete, deferred, or worth revisiting.
 
 ## Closure approval
 Pending user review of the concrete result and proposed disposition.
+Record approval and its timestamp (`YYYY-MM-DD HH:mm ±HH:MM`) only when given.

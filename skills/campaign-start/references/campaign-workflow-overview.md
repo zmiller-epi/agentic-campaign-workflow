@@ -20,8 +20,8 @@ README, AGENTS.md, development or design guidance, or deciding where a finding b
 Adapt existing docs and add files only when useful; this is not a setup checklist.
 
 Work outside a campaign can leave an optional note in
-`docs/notes/YYYY-MM-DD-topic.md`. A small fix may need only a commit and relevant
-checks. Both small tasks and campaign chunks update affected project guides when
+`docs/notes/YYYY-MM-DD_HH-mm±HHMM-topic.md`. A small fix may need only a commit
+and relevant checks. Both small tasks and campaign chunks update affected project guides when
 they change how the project is used or understood, linking back to supporting notes
 or campaign records. Keep tentative conclusions clearly labeled.
 
@@ -52,6 +52,40 @@ draft, active, paused, completed, and abandoned work well; preserve local wordin
 `PLAN.md` records chunk state. `RESULT.md` distinguishes a draft from the outcome
 the user approved. These are readable conventions, not parser requirements.
 
+## Timestamps
+
+Use `YYYY-MM-DD HH:mm ±HH:MM` for new date stamps in all workflow records,
+including creation and update fields, decisions, approvals, status changes,
+handoffs, reviews, cleanup notes, and run records. Use a 24-hour clock with
+zero-padded hours and minutes and an explicit UTC offset, for example
+`2026-09-08 18:35 -07:00`. Seconds are unnecessary for workflow stamps; retain
+any finer precision in source logs or experimental evidence.
+
+Use the user or project's established time zone; otherwise use the runtime's
+local zone and its actual offset. Read the clock when recording a current event
+rather than estimating the time from the conversation. Use the offset applicable
+at that instant, including daylight-saving changes; `+00:00` denotes UTC.
+For an earlier event, use its evidenced time. If only the recording time is known,
+label it `Recorded at` rather than implying it was the event or approval time.
+Never fill pending approval, start, or completion times before those events occur.
+
+In filenames, use `YYYY-MM-DD_HH-mm±HHMM-<topic>.md`, for example
+`2026-09-08_18-35-0700-chunk-1-review.md`. Replace `±` with the actual `+` or `-`
+sign; the filename retains the offset without spaces or colons. Use the record's
+creation time for its filename and keep that filename stable when updating it.
+Add a suffix such as `-r2` if the timestamp and topic would otherwise collide.
+
+The campaign templates include `Created` and `Updated` fields. Set both when
+creating a document; preserve `Created` and advance `Updated` when changing its
+content. Record event times alongside approvals, decisions, state changes, and
+handoffs where they occur; a document's update time does not replace them.
+
+Apply this convention to new records and new entries in existing documents.
+Preserve historical timestamps and filenames, including date-only entries; do not
+rename old notes or invent missing hours, minutes, or offsets. An unknown event
+time can remain explicitly unknown. Calendar dates that are not event stamps,
+such as a publication date or a day-only deadline, can remain dates.
+
 ## Starting and planning
 
 Interview conversationally. Ask whether this effort is engineering, an experiment,
@@ -75,8 +109,8 @@ explicit user approval before beginning implementation, experiments, or other ca
 chunks. Interviewing, read-only context gathering, and drafting campaign records can
 continue while approval is pending; keep the campaign draft and the next action in
 `PLAN.md` focused on review or revision. A request to start or proceed does not approve
-an unseen plan. Once approved, record approval and date in `PLAN.md` and mark the
-campaign active, leaving the first chunk planned. `campaign-start` ends here with a
+an unseen plan. Once approved, record approval and its timestamp in `PLAN.md`
+and mark the campaign active, leaving the first chunk planned. `campaign-start` ends here with a
 documented handoff; it does not execute the approved plan. Reuse approval for an
 unchanged plan; present material revisions to scope, approach, or completion criteria
 for approval before executing them.
@@ -106,10 +140,10 @@ continuing. Provide a ready-to-use prompt naming the campaign path and next chun
 review, closure, or follow-up action. Do not clear context on the user's behalf.
 For a closed campaign with no follow-ups, simply suggest a fresh session for new work.
 
-Keep a durable handoff in `PLAN.md`: current state and approvals, branch or worktree,
-the next action and its first concrete step, unresolved questions, and relevant
-evidence/notes. The next session must be able to proceed from these records without
-the previous chat history. A later user request to resume or start the named chunk
+Keep a durable handoff in `PLAN.md`: the handoff timestamp, current state and approvals,
+branch or worktree, the next action and its first concrete step, unresolved questions,
+and relevant evidence/notes. The next session must be able to proceed from these
+records without the previous chat history. A later user request to resume or start the named chunk
 can execute that action without reapproving an unchanged plan. Execute one chunk at
 a time and honor the next completion boundary.
 
@@ -128,9 +162,9 @@ artifact location and link them. Missing provenance limits the claim; a commit
 hash alone does not capture an uncommitted notebook or changing external data.
 Use a clean checkpoint when practical, or retain the relevant patch/configuration.
 
-A useful note name is `YYYY-MM-DD-<topic>.md`. Review names can include the chunk
-and a round suffix. Preserve previous reviews and run evidence rather than
-overwriting them; append follow-up verification or write a new linked note.
+A useful note name is `YYYY-MM-DD_HH-mm±HHMM-<topic>.md`, following the
+[timestamp convention](#timestamps). Review names can include the chunk and a
+round suffix. Preserve previous reviews and run evidence rather than overwriting them; append follow-up verification or write a new linked note.
 
 ## Reviews
 
@@ -198,8 +232,8 @@ closed. A request to run the completion skill starts this process; it does not
 approve an outcome the user has not seen. Reuse approval already given for the
 unchanged result. If cleanup materially changes the result, show the revision.
 Paused work can stay open with a clear next action.
-After recording the approved disposition and checkpointing the documents, stop and
-suggest a fresh session before follow-ups, paused work, or a new campaign.
+Record the approved disposition and its timestamp, checkpoint the documents, then
+stop and suggest a fresh session before follow-ups, paused work, or a new campaign.
 
 ## Git collaboration
 

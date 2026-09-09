@@ -5,6 +5,10 @@ description: Delegate an engineering or research campaign review to independent 
 
 # Review a campaign
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Keep the calling session focused on coordination and synthesis. Resolve the campaign
 and read only enough of `SPEC.md`, `PLAN.md`, and the outcome summary to scope the
 review. Identify the revisions, change boundaries, and artifact locations without
@@ -49,8 +53,9 @@ a dedicated review session. Do not fall back to an in-depth review in the callin
 session or claim independent verification that did not happen. The handoff should
 identify the missing scope and need for subagent support.
 
-Write a new report in `notes/`, for example `YYYY-MM-DD-campaign-review.md`, with
-a suffix for later rounds. Explain the scope/revisions reviewed, evidence and checks,
+Write a new report in `notes/`, for example
+`YYYY-MM-DD_HH-mm±HHMM-campaign-review.md`, with a suffix for later rounds.
+Include the review timestamp. Explain the scope/revisions reviewed, evidence and checks,
 findings ordered by consequence, limitations, and whether the intended outcome is
 supported by the reviewed scope. Incomplete coverage cannot establish overall readiness.
 Give actionable findings clear next steps and supporting file/artifact links.

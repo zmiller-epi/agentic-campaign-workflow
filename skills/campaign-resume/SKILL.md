@@ -5,6 +5,10 @@ description: Reorient the user to an existing campaign and continue its current 
 
 # Resume a campaign
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 Find the campaign from the request, conversation, or current working branch and files.
 Look in the project's campaign locations, including older engineering/experiment
 folders. If several candidates fit, show brief choices and ask which one.

@@ -5,6 +5,10 @@ description: Prepare a campaign's final result, obtain approval, close or abando
 
 # Complete a campaign
 
+Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
+[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
+for filenames, time zones, and preserving historical records.
+
 This skill ends the campaign session. Complete the result and documentation work;
 do not begin follow-up implementation, another chunk, or a new campaign.
 
@@ -40,8 +44,9 @@ of this exact outcome is sufficient; do not ask again unless it materially chang
 While approval is pending, leave campaign status open and the result draft.
 If the user requests changes, revise and present the changed result.
 
-After approval, record the approval and date in `RESULT.md`, update the campaign status
-in `SPEC.md`, and reconcile `PLAN.md`: distinguish finished, deferred, and dropped work.
+After approval, record the approval and its timestamp in `RESULT.md`, update the
+campaign status in `SPEC.md`, and reconcile `PLAN.md`: distinguish finished, deferred,
+and dropped work.
 Leave durable pointers to any follow-ups, relevant branch or worktree, and a concrete
 resume action for paused work. If nothing remains, say so instead of inventing work.
 Checkpoint these documents on the working branch. If closing introduces only status
