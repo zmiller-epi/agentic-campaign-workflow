@@ -57,9 +57,12 @@ naming the campaign and next action; leave clearing context to the user.
 
 Keep a timestamped handoff in `PLAN.md`: current state and approvals, branch or
 worktree, evidence links, unresolved questions, and the next action's first step.
-A fresh session must be able to continue from these records. A later request to
-resume can execute the next authorized action without reapproving an unchanged
-plan; work one chunk at a time and honor the next completion boundary.
+A fresh session must be able to continue from these records.
+[campaign-resume](../../campaign-resume/SKILL.md) inspects the current state, orients
+the user, and ends the turn waiting for the user to choose the next action. Recorded
+approval or a handoff does not bypass this pause. Once the user chooses execution,
+reuse valid approval for an unchanged plan; work one chunk at a time and honor the
+next completion boundary.
 
 ## Evidence and notes
 

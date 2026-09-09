@@ -70,7 +70,7 @@ parent to address. The installer itself leaves project docs alone.
 | `chunk-complete` | Record evidence, update and clean up docs, checkpoint the work, and stop with a session handoff. |
 | `campaign-review` | Use independent subagents to review the whole campaign and write a report in `notes/`. |
 | `campaign-complete` | Draft the outcome, run cleanup, obtain approval, close the campaign, and end the session's work. |
-| `campaign-resume` | Rebuild context and continue the current work when the user wants to resume. |
+| `campaign-resume` | Inspect the current state, orient the user, and pause for their next direction. |
 | `campaign-refresh` | Reread updated workflow instructions in the current task; optionally pull the shared development source. |
 | `campaign-cleanup` | Tidy the record and surface consequential discrepancies. Usually delegated. |
 
