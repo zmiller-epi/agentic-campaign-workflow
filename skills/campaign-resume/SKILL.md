@@ -1,13 +1,14 @@
 ---
 name: campaign-resume
-description: Reorient the user to an existing campaign and continue its current work, or provide an orientation-only summary when requested.
+description: Inspect an existing campaign, orient the user to its current state, and pause for the user to decide what to do next.
 ---
 
 # Resume a campaign
 
-Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
-[the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
-for filenames, time zones, and preserving historical records.
+This is an orientation step. Inspect the campaign and working state, explain what
+is going on, and end the turn waiting for the user's next direction. A request to
+resume does not itself authorize starting or continuing campaign work, even when
+the recorded plan is approved or a chunk is already in progress.
 
 Find the campaign from the request, conversation, or current working branch and files.
 Look in the project's campaign locations, including older engineering/experiment
@@ -19,25 +20,26 @@ and recent notes or results. Inspect the actual working state and recent changes
 to distinguish recorded plans from work already done. Account for an in-progress
 chunk or a pending review/closure approval.
 
+Keep this inspection read-only. If records disagree, investigate enough to explain
+the discrepancy without inventing history. Surface stale pointers and substantial
+drift in the orientation; suggest [campaign-cleanup](../campaign-cleanup/SKILL.md)
+when useful, leaving repairs for the user's decision.
+
 Give the user a short orientation: purpose, what has happened, current work,
-material uncertainty, and the next useful action. Link the most relevant records.
-Fix obvious stale pointers; when the documents disagree in a consequential way,
-state the discrepancy and investigate or ask rather than inventing history.
+material uncertainty or pending decisions, and the next useful action. Link the
+most relevant records. Distinguish a recommended next action from work already done.
 
-If substantial drift makes the handoff confusing, use
-[campaign-cleanup](../campaign-cleanup/SKILL.md) with documentation-only ownership,
-or perform its pass locally. Wait for it before editing the same records.
+**End with a concise question about what the user wants to do next, then stop.**
+Do not start or continue a chunk, invoke review or cleanup, reopen a completed or
+abandoned campaign, or perform independent campaign work while waiting for a reply.
+Recorded approvals and handoff instructions inform the recommendation; they do not
+remove this pause.
 
-When the user asks to resume or continue, proceed with the next authorized action,
-using [chunk-start](../chunk-start/SKILL.md) for implementation, investigation, or
-unfinished chunk work. Do not stop solely to require another skill invocation.
-Use the recorded handoff and reuse valid approval; a fresh session does not require
-reapproving an unchanged plan. Honor the stop after campaign planning, chunk completion,
-or campaign completion. Do not automatically invoke resume at one of those boundaries
-or treat a broad request to continue as permission to chain through later chunks.
-An orientation-only request ends with the summary. If a real decision or approval
-is pending, explain it and continue independent work while waiting. Do not silently
-reopen a completed or abandoned campaign.
+Once the user chooses the next action in a follow-up, use the appropriate skill,
+such as [chunk-start](../chunk-start/SKILL.md) for implementation, investigation,
+or unfinished chunk work. Reuse valid approval for an unchanged plan; the user
+need not repeat plan approval or invoke another skill by name. Honor that action's
+completion boundary.
 
 For shared conventions, see
 [the overview](../campaign-start/references/campaign-workflow-overview.md).

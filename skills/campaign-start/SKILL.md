@@ -88,5 +88,5 @@ execution can begin without this conversation. Checkpoint the approved documents
 an execution skill.** Summarize the approved objectives and link the spec and plan.
 Suggest that the user clear context or start a new session before continuing, and
 give a ready-to-use prompt naming the campaign path and first chunk, for example:
-"Use campaign-resume for docs/campaigns/<name>/ and begin chunk <id>."
+"Use campaign-resume for docs/campaigns/<name>/ to review the handoff for chunk <id>."
 Leave that action for the user's next request; do not clear context on their behalf.
