@@ -15,10 +15,12 @@ Look in the project's campaign locations, including older engineering/experiment
 folders. If several candidates fit, show brief choices and ask which one.
 Do not read every previous campaign in full or treat missing status fields as inactivity.
 
-Read `SPEC.md`, the current and next parts of `PLAN.md`, relevant decisions,
-and recent notes or results. Inspect the actual working state and recent changes
-to distinguish recorded plans from work already done. Account for an in-progress
-chunk or a pending review/closure approval.
+Read `STATE.md` and the relevant spec/plan sections, following its essential links.
+Use [record access](../campaign-start/references/record-access.md) for applicable decisions,
+specific historical questions, or legacy status/approval/handoff locations when state
+is absent. Do not load all recent notes for orientation. Inspect the actual working
+state and recent changes to distinguish intended work from work already done.
+Account for an in-progress chunk or pending review/closure approval.
 
 Keep this inspection read-only. If records disagree, investigate enough to explain
 the discrepancy without inventing history. Surface stale pointers and substantial

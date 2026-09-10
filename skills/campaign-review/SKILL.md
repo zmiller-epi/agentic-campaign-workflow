@@ -10,8 +10,9 @@ Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Foll
 for filenames, time zones, and preserving historical records.
 
 Keep the calling session focused on coordination and synthesis. Resolve the campaign
-and read only enough of `SPEC.md`, `PLAN.md`, and the outcome summary to scope the
-review. Identify the revisions, change boundaries, and artifact locations without
+and read current state and only enough of `SPEC.md`, `PLAN.md`, and the outcome summary
+to scope the review. Use [record access](../campaign-start/references/record-access.md)
+for historical lookup or legacy state. Identify the revisions, change boundaries, and artifact locations without
 loading full diffs, run logs, prior reports, or large datasets into the parent context.
 
 Choose questions that could change the assessment: does the delivered behavior meet
@@ -44,7 +45,7 @@ supporting file/line or artifact references, checks and outcomes, and limitation
 Keep full diffs, logs, transcripts, and exploratory reasoning out of their replies.
 Wait for results and reconcile them into the report. Resolve disputed findings with
 a targeted reviewer follow-up or a small reference check; do not repeat the full review
-in the parent session. The parent owns the report and plan links.
+in the parent session. The parent owns the report and current-state pointers.
 
 If a reviewer fails, retry or reassign the missing scope where possible. Never count
 an unreturned review as a pass. If delegation is unavailable or coverage remains
@@ -61,7 +62,10 @@ supported by the reviewed scope. Incomplete coverage cannot establish overall re
 Give actionable findings clear next steps and supporting file/artifact links.
 Preserve earlier reports and link later resolutions.
 
-Link the report and any remediation chunks or follow-ups from `PLAN.md`.
+Link the report from `STATE.md` with the current assessment, unresolved blockers,
+and next action. Revise `PLAN.md` only if remediation or follow-ups change intended
+work. Significant resulting design/experimental choices belong in `DECISIONS.md`;
+routine review does not. Keep detailed findings in the reports they reference.
 Give the user a concise assessment, the consequential findings, remaining uncertainty,
 and a link to the report; keep detailed evidence in the records it references.
 This skill writes a review; it does not close, merge, or publish the campaign.

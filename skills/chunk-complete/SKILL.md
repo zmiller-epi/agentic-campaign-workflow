@@ -12,7 +12,9 @@ for filenames, time zones, and preserving historical records.
 Chunk completion ends the current working session. Finish verification and the
 documentation handoff for this chunk; do not start another chunk as part of completion.
 
-Resolve the campaign and chunk. Before marking it complete, suggest running
+Resolve the campaign and chunk from `STATE.md` and the relevant plan section. Follow
+[record access](../campaign-start/references/record-access.md) for evidence lookup or older
+campaigns. Before marking it complete, suggest running
 [chunk-review](../chunk-review/SKILL.md) if no existing review covers the current
 work. Run it when review is part of the current request, or leave a clear handoff
 for review. Keep the chunk open while that review or its blocking findings remain
@@ -27,11 +29,11 @@ If an unresolved issue invalidates the chunk's outcome, keep it open and state t
 next action. A changed objective may justify splitting or replanning the chunk;
 make that change explicit rather than retroactively declaring success.
 
-Record consequential decisions and their reasons in `DECISIONS.md`. Preserve useful
-working or run notes, link review evidence, and carry follow-ups into `PLAN.md`.
-Mark the chunk complete and record its completion timestamp when its current outcome
-is supported. Routine chunk closure within the user's request needs no extra
-approval ceremony.
+Record a decision only if a significant design/experimental choice occurred; routine
+completion does not qualify. Preserve useful run/working evidence in notes. Mark the
+chunk complete with its timestamp in `STATE.md` when its outcome is supported, and
+link the applicable review and evidence there. Revise `PLAN.md` only if follow-ups
+change intended work. Routine chunk closure needs no extra approval ceremony.
 
 Update affected project documentation when this chunk changes setup, usage, interfaces,
 or methods. Use the
@@ -39,13 +41,16 @@ or methods. Use the
 when deciding where information belongs. Keep the detailed decision history and
 evidence in the campaign, and link to them from current guidance where useful.
 
-Leave a handoff in `PLAN.md` with the completed chunk, evidence links, unresolved
-follow-ups, working branch or worktree, and the next chunk or review/closure action.
-Make its first step concrete enough for a fresh session. Leave later chunks planned.
+Replace the current handoff in `STATE.md` with essential evidence pointers, unresolved
+follow-ups, branch/worktree, and the next chunk or review/closure action. Retain valid
+approvals and restrictions; preserve unique useful history in notes before replacing
+its only copy. Make the first step concrete for a fresh session. Leave later chunks
+planned in state and completed chunks' intended work intact in the plan.
 
 Run [campaign-cleanup](../campaign-cleanup/SKILL.md), preferably in a subagent.
-Give it the selected campaign path and documentation ownership only; it is not alone
-in the workspace and must preserve others' edits. Avoid editing those same documents
+Give it the campaign path, current chunk, affected records/links, and documentation
+ownership only; it is not alone in the workspace and must preserve others' edits.
+Start cleanup with that scope, expanding when discrepancies warrant it. Avoid editing those same documents
 until it returns. Wait for its result, inspect any edits, and address consequential
 discrepancies without treating cosmetic gaps as blockers. Use the same pass locally
 if delegation is unavailable.
@@ -54,7 +59,7 @@ Make a focused checkpoint commit on the working branch, including relevant work,
 documentation, and the handoff. Inspect the staged diff so unrelated changes are not
 swept in. No tag, merge, or branch deletion is part of chunk completion.
 
-Tell the user what finished and what evidence supports it, linking the plan and
+Tell the user what finished and what evidence supports it, linking state and
 relevant review or notes. **Stop here; do not begin the next chunk or automatically
 run campaign review or campaign completion.** Suggest clearing context or starting
 a new session before continuing. Provide a ready-to-use prompt naming the campaign

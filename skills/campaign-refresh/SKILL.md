@@ -54,7 +54,9 @@ text, describe the current rules without inventing a change history.
 
 Preserve campaign records, completed work, and valid prior approvals. Refreshing
 instructions does not restart the campaign, regenerate its documents from templates,
-or authorize a new plan. Surface any consequential mismatch with the current plan;
+authorize migration to `STATE.md`, or authorize a new plan. Follow
+[record access](../campaign-start/references/record-access.md) to read legacy state and
+introduce new record roles only during an authorized documentation update. Surface any consequential mismatch with the current plan;
 obtain approval of material plan changes before executing them. When the user asks
 to continue, resume the next authorized action using the refreshed instructions.
 

@@ -1,6 +1,6 @@
 {
   "name": "campaign-workflow",
-  "version": "0.2.0",
+  "version": "2.0.0",
   "description": "Lightweight engineering and research campaigns with shared Markdown records.",
   "author": {
     "name": "zmiller-epi"

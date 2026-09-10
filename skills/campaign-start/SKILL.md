@@ -18,6 +18,7 @@ or a mixture. If they have already said, acknowledge it and ask the next useful
 question. Use a question tool when available, or ask in conversation, in small rounds.
 
 Explore the relevant project and previous campaigns as the conversation develops.
+Use [record access](references/record-access.md) for questions requiring campaign history.
 Use what you learn to clarify the intended outcome, uncertainty, and tradeoffs.
 Probe consequential assumptions in both the request and your proposed approach: what
 must be true for the work to be useful, what evidence supports it, and what would
@@ -55,7 +56,8 @@ Adapt the templates in [assets](assets) into the campaign folder:
 
 - [SPEC.md](assets/SPEC.md): purpose, kind, scope, completion criteria, assumptions, and open questions.
 - [PLAN.md](assets/PLAN.md): session-sized chunks, with the next chunk concrete and later work rough.
-- [DECISIONS.md](assets/DECISIONS.md): decisions already made and their reasons; otherwise a brief empty log.
+- [STATE.md](assets/STATE.md): current status, approvals, restrictions, and next action.
+- [DECISIONS.md](assets/DECISIONS.md): significant design/experimental choices and reasons; otherwise a brief empty log.
 - [RESULT.md](assets/RESULT.md): a draft placeholder for the eventual outcome.
 - `notes/`: an initially empty folder for working notes, run records, and reviews.
 
@@ -65,7 +67,7 @@ checks, review, and documentation handoff. Plan around outcomes, not one run per
 Include relevant prior-campaign links and where the next session should begin. Drop
 unhelpful template prompts instead of filling them with boilerplate.
 
-Keep the campaign status draft while preparing the spec and plan and awaiting
+Keep the campaign status draft in `STATE.md` while preparing the spec and plan and awaiting
 user approval. Make a focused checkpoint commit of the draft records on the working
 branch when Git is available. Show the user the spec, plan, completion criteria,
 consequential assumptions, unresolved choices, and proposed next chunk, and ask for
@@ -79,10 +81,11 @@ is not approval either. Reuse approval already given for the unchanged plan. If 
 revision materially changes the proposed scope, approach, or completion criteria,
 show the revision and obtain approval before executing it.
 
-After approval, record it and its timestamp in `PLAN.md`, set the campaign status
-to active, and leave the first chunk planned. Record the campaign path, working branch or worktree,
-approved first chunk, relevant references, and first concrete action in `PLAN.md` so
-execution can begin without this conversation. Checkpoint the approved documents and handoff.
+After approval, record it, its timestamp, and the approved scope/revision in `STATE.md`.
+Set campaign status active and leave the first chunk planned. Refresh the state handoff
+with the campaign path, branch/worktree, applicable restrictions, essential references,
+and first concrete action. Approval alone does not change `PLAN.md` or warrant a
+`DECISIONS.md` entry. Checkpoint the approved documents and handoff.
 
 **Stop after the approved planning handoff. Do not start the first chunk or invoke
 an execution skill.** Summarize the approved objectives and link the spec and plan.

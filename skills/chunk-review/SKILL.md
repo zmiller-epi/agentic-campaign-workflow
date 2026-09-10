@@ -10,8 +10,9 @@ Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Foll
 for filenames, time zones, and preserving historical records.
 
 Keep the calling session focused on coordination and synthesis. Resolve the campaign
-and chunk, and read only enough of `SPEC.md` and `PLAN.md` to identify its intended
-outcome and assessment criteria. Identify the revision/diff boundary, relevant paths,
+and chunk from current state, and read only enough of `SPEC.md` and `PLAN.md` to
+identify its intended outcome and assessment criteria. Use
+[record access](../campaign-start/references/record-access.md) for historical lookup or legacy state. Identify the revision/diff boundary, relevant paths,
 and any uncommitted changes included. If the boundary cannot be reconstructed, state
 the scope used. Leave detailed code, artifact, and log inspection to reviewers.
 
@@ -42,7 +43,7 @@ or artifact references, checks and outcomes, and limitations. Keep full diffs, l
 transcripts, and exploratory reasoning out of their replies. Wait for and reconcile
 their findings. Resolve uncertainty through targeted reviewer follow-ups or small
 reference checks; do not duplicate the full inspection in the parent. The parent owns
-the report and plan links.
+the report and current-state pointers.
 
 Retry or reassign failed reviews where possible; never count unreturned reviews as
 passes. If delegation is unavailable or coverage remains incomplete, record the gap
@@ -59,8 +60,10 @@ in the report. Use a new suffix or a linked follow-up for later rounds. Include:
 - A clear assessment of readiness and what remains unverified.
 
 Confirm findings before presenting them; label uncertain concerns accordingly.
-Link the report and actionable follow-up work from `PLAN.md`, preserving other work.
-Keep old findings traceable when later checks resolve them. Report when no actionable
+Link the report from `STATE.md` with a brief current assessment, blockers, and next
+action. Revise `PLAN.md` only when findings change intended work; routine review needs
+no decision entry. Keep old findings traceable when later reports resolve them, and
+refresh state to point to the applicable assessment without accumulating review history. Report when no actionable
 issues were found within the reviewed scope; incomplete coverage cannot establish
 overall readiness. Give the user a concise assessment and consequential findings with
 a link to the report. Review itself does not mark the chunk complete.
