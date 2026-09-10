@@ -3,7 +3,6 @@
 **Created:** <YYYY-MM-DD HH:mm ±HH:MM>
 **Updated:** <YYYY-MM-DD HH:mm ±HH:MM>
 
-**Status:** draft
 **Kind:** engineering / experiment / mixed
 
 ## Purpose

@@ -13,15 +13,29 @@ New campaigns default to `docs/campaigns/<name>/`:
 
 ```text
 SPEC.md          What we want to build or learn, and what would count as success
-PLAN.md          Session-sized chunks, their current state, and the next action
-DECISIONS.md     Important choices and their reasons
+PLAN.md          Intended chunks, approach, dependencies, and assessment methods
+STATE.md         Current status, approvals, restrictions, and the next action
+DECISIONS.md     Significant design and experimental choices, with reasons
 RESULT.md        Outcome, evidence, limitations, and the user's closure approval
 notes/           Working notes, reviews, run records, and other useful context
 ```
 
-The four files start small; `RESULT.md` stays a draft until there is an outcome.
+The five files start small; `RESULT.md` stays a draft until there is an outcome.
 Headings are prompts to adapt, not a schema to satisfy. Existing campaign folders
 and useful records can stay where they are.
+
+Update the plan only when intended work changes. Keep state as one compact snapshot,
+and record decisions only for substantive choices such as cancelling a planned test
+or changing default parameters. Routine approvals, execution events, and completion
+announcements do not need decision entries. Review reports and run details live in
+`notes/`; current state links to the applicable evidence and unresolved findings.
+
+Agents start with current state and relevant spec/plan sections, then follow specific
+links or search for a concrete question. Broader historical questions can go to a
+read-only subagent that returns a concise answer with sources and uncertainty. See
+[record access](skills/campaign-start/references/record-access.md) for selective retrieval
+and adapting an older campaign. One coherent activity can have one note; every action,
+session, or lookup does not need a new file or summary.
 
 New date stamps include hours, minutes, and a UTC offset: `YYYY-MM-DD HH:mm ±HH:MM`
 (for example, `2026-09-08 18:35 -07:00`). Note filenames use
@@ -86,16 +100,18 @@ and stops with a prompt for the next session; it never starts the next chunk. Af
 the final chunk, a later session can run `campaign-review → campaign-complete`, which
 also ends with a fresh-session suggestion before any follow-up work.
 
-Handoffs in `PLAN.md` carry the next action, relevant evidence, and valid approvals
-across sessions. Resume wherever useful. Review can uncover another chunk; cleanup
+Handoffs in `STATE.md` carry the next action, essential evidence links, valid approvals,
+and active restrictions across sessions. Each handoff replaces the current snapshot;
+useful history stays in linked notes. Resume wherever useful. Review can uncover another chunk; cleanup
 does not enforce a rigid sequence. Small tasks do not need to become campaigns.
 
 Reviews delegate detailed inspection and checks to independent subagents; the calling
 session scopes the work and synthesizes compact findings into a report. If delegation
 is unavailable, record the review gap and hand off to a dedicated review session instead
 of filling the current context with the review. Cleanup receives documentation ownership
-only and can run locally when delegation is unavailable. No custom subagent registration
-is required.
+only and can run locally when delegation is unavailable. Routine cleanup starts with
+the chunk's affected records and links, expanding when discrepancies warrant it;
+closure reconciles the accumulated outcome. No custom subagent registration is required.
 
 ## Install
 
@@ -272,7 +288,10 @@ so reproducibility does not depend on tags.
 ## Moving from the previous kit
 
 Read [migration notes](docs/migration.md) before updating an existing installation.
-The engineering and `exp-` skill pairs have been consolidated. The current
+Version 2 separates current state from planned work and limits decision entries to
+significant design/experimental choices. Older campaigns remain readable, and existing
+history is preserved during an authorized adaptation. The engineering and `exp-` skill
+pairs have been consolidated. The current
 `repo-init` is optional documentation setup; the old kit's Git and installation
 preflight requirements do not apply. `exp-run` and `harden` are no longer separate
 workflow skills.

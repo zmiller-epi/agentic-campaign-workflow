@@ -1,7 +1,36 @@
 # Moving to Campaign Workflow
 
-This revision replaces the Claude-only kit with shared skills for both harnesses. Existing
-campaign records do not need a bulk migration.
+Version 2 separates intended work from current state and makes historical retrieval
+selective. Existing campaign records do not need a bulk migration. The earlier shared
+workflow also replaced the Claude-only kit; those installation notes remain below.
+
+## Moving to the five-record workflow in v2
+
+New campaigns add `STATE.md` for campaign/chunk status, approvals, active restrictions,
+evidence pointers, and the next action. `SPEC.md` holds objectives and criteria;
+`PLAN.md` describes intended work and changes only when that work changes.
+`DECISIONS.md` records significant design/experimental choices. Detailed review and
+run reports stay in `notes/`, and `RESULT.md` holds the synthesized outcome and closure
+approval. Routine approvals and completion events need no decision entry.
+
+Older campaigns can resume from existing status and handoff sections without writing
+new files. Updating installed skills or refreshing instructions does not itself
+migrate records. During an authorized documentation update:
+
+1. Inspect existing records and retain valid approvals, their timestamps and scope,
+   current restrictions, and useful historical content.
+2. Introduce `STATE.md` as the current snapshot and replace previous operational
+   sections with a clear pointer. Preserve unique history before removing its only copy.
+3. Move accumulated execution narrative and non-design decision entries into linked
+   notes, preserving wording, timestamps, and evidence. Repair relative links from
+   the new location and leave pointers at the old location. Keep substantive choices
+   and intended work in their proper records.
+4. Check that current state has one clear home and that a fresh session can find the
+   next action and its supporting evidence. Surface conflicts rather than guessing.
+
+Adapt only the selected campaign as needed; preserve other campaigns and established
+historical files. See [record access](../skills/campaign-start/references/record-access.md)
+for the procedure available inside installed skills.
 
 ## Update the installation
 

@@ -13,7 +13,10 @@ This skill ends the campaign session. Complete the result and documentation work
 do not begin follow-up implementation, another chunk, or a new campaign.
 
 Resolve the campaign and intended disposition: completed, abandoned, or paused.
-Read its spec, plan, decisions, evidence, and relevant reviews. Missing ceremonies
+Read current state, completion criteria, intended work, and the outcome summary.
+Follow [record access](../campaign-start/references/record-access.md) to retrieve applicable
+decisions, review findings, and supporting evidence, including legacy records.
+Assess coverage across the campaign without loading all notes by default. Missing ceremonies
 do not by themselves block closure, but unsupported claims and unresolved substantive
 findings need honest treatment. A negative or inconclusive experiment may still
 fulfill the campaign's objective.
@@ -32,8 +35,10 @@ where useful. Preserve the campaign's reasoning and evidence and link to them; l
 pending conclusions and do not present abandoned approaches as current project behavior.
 
 Run [campaign-cleanup](../campaign-cleanup/SKILL.md), preferably in a subagent,
-before presenting the final draft. Give it the campaign path and documentation-only
-ownership; it is not alone in the workspace and must preserve others' edits. Do not
+before presenting the final draft. Give it the campaign path, proposed outcome,
+criteria/evidence pointers, closure scope, and documentation-only ownership. It must
+reconcile the outcome and work dispositions across the campaign, using selective
+retrieval. It is not alone in the workspace and must preserve others' edits. Do not
 edit those same documents concurrently. Wait for it and inspect the result; perform
 the same pass locally if delegation is unavailable. Resolve meaningful discrepancies.
 
@@ -44,11 +49,11 @@ of this exact outcome is sufficient; do not ask again unless it materially chang
 While approval is pending, leave campaign status open and the result draft.
 If the user requests changes, revise and present the changed result.
 
-After approval, record the approval and its timestamp in `RESULT.md`, update the
-campaign status in `SPEC.md`, and reconcile `PLAN.md`: distinguish finished, deferred,
-and dropped work.
-Leave durable pointers to any follow-ups, relevant branch or worktree, and a concrete
-resume action for paused work. If nothing remains, say so instead of inventing work.
+After approval, record the approval and its timestamp in `RESULT.md`. Update campaign
+status and finished/deferred/dropped chunk dispositions in `STATE.md`. Revise `PLAN.md`
+only if intended work changes; closure alone needs no plan edit or decision entry.
+Refresh state with pointers to follow-ups, branch/worktree, and a concrete resume
+action for paused work; preserve applicable approvals and active restrictions. If nothing remains, say so instead of inventing work.
 Checkpoint these documents on the working branch. If closing introduces only status
 or link edits, a short local consistency check suffices; do not repeat a full review.
 

@@ -14,8 +14,10 @@ project, or deliberately revisit its repository-level documentation. Resolve the
 project directory from the request and current context before editing.
 
 Read the current README, agent instructions, and relevant project docs. Inspect
-enough code, configuration, and existing notes or campaigns to understand what the
-project does and how it is used. In an empty project, use the user's stated intent
+enough code and configuration to understand what the project does and how it is used.
+Consult notes or campaigns for specific questions using
+[record access](../campaign-start/references/record-access.md); do not load campaign
+history as routine repository orientation. In an empty project, use the user's stated intent
 and ask only the questions needed to write a useful starting point. Keep planned
 behavior distinct from something already implemented or verified.
 

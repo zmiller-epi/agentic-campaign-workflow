@@ -34,7 +34,7 @@ commands. Empty directories or placeholder documents are unnecessary.
 | `docs/development.md` | Practical setup, common commands, checks, and recurring troubleshooting. Include prerequisites and expected outcomes; distinguish smoke tests from expensive full runs. |
 | `docs/design.md` | How the project currently works: components, interfaces, data flow, methods, assumptions, and the reasons for consequential choices. |
 | `docs/notes/` | Standalone investigations, debugging findings, small experiments, reviews, and unfinished thoughts worth preserving. |
-| `docs/campaigns/` | Larger efforts with their own spec, living plan, decisions, results, and working notes. |
+| `docs/campaigns/` | Larger efforts with a spec, intended plan, current state, significant decisions, outcome, and supporting notes. |
 
 For a research project, design.md can explain the analysis pipeline and how to
 interpret its outputs. Split out `docs/data.md` or `docs/methods.md` when acquisition,
@@ -100,7 +100,11 @@ methods on the branch being reviewed.
 
 Keep the reasoning and evidence in their original campaign or note. Summarize what
 a current user needs in the maintained guide, with a link back when the reasoning
-matters. For example, a normalization change can have its alternatives in DECISIONS.md,
+matters. Campaign progress, approvals, and handoffs belong in `STATE.md`; update
+`PLAN.md` only when intended work changes. Detailed reviews live in `notes/`, with
+current assessment and blockers linked from state. Follow
+[record access](../../campaign-start/references/record-access.md) for selective reading
+and older records. For example, a normalization change can have its alternatives in DECISIONS.md,
 comparative evidence in RESULT.md, current methodology in design.md, and revised
 commands in development.md. Each record has a different job.
 
