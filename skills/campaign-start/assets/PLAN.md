@@ -6,6 +6,8 @@
 Describe intended work. Revise the relevant sections only when the planned scope,
 approach, order, dependencies, or assessment changes. Execution progress, approvals,
 handoffs, and observed results belong in `STATE.md` and supporting notes.
+Keep chunk identifiers stable and headings descriptive so state can link directly
+to the selected chunk. Name dependency chunks explicitly instead of requiring a full reread.
 
 ## Chunk 1: <session-sized outcome>
 

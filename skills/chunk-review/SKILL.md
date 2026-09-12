@@ -5,6 +5,9 @@ description: Delegate a campaign chunk review to independent subagents, keeping 
 
 # Review a chunk
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.
@@ -53,7 +56,10 @@ The handoff should identify the missing scope and need for subagent support.
 
 Write a readable report under `notes/`, such as
 `YYYY-MM-DD_HH-mm±HHMM-chunk-<name>-review.md`; include the review timestamp
-in the report. Use a new suffix or a linked follow-up for later rounds. Include:
+in the report. Use a new suffix or a linked follow-up for later rounds. Adapt the
+[note template](../campaign-start/assets/NOTE.md), with a short summary and searchable
+scope/finding headings. Aim for about 200 lines or fewer, linking substantial detail
+without omitting actionable findings or coverage gaps. Include:
 
 - The scope and revision reviewed, checks/evidence, and reviewer coverage.
 - Findings ordered by impact, each with supporting references and a proposed next action.

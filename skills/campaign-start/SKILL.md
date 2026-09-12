@@ -5,6 +5,9 @@ description: Plan an engineering, experiment, or mixed campaign interactively, o
 
 # Start a campaign
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.
@@ -40,7 +43,10 @@ Do not invent interview answers while waiting for input.
 Read [the overview](references/campaign-workflow-overview.md) when establishing
 the workflow or resolving a convention. It provides context, not extra interview gates.
 
-Use existing project documentation as context. Repository-wide setup belongs to
+Use existing project documentation as context, reading relevant sections and
+following [record access](references/record-access.md) for prior-campaign questions.
+A substantial background investigation can use [work allocation](references/work-allocation.md)
+while the main session continues the interview or drafting. Repository-wide setup belongs to
 [repo-init](../repo-init/SKILL.md); do not repeat it for every campaign or invoke it
 automatically because a suggested file is missing. If setup would help, mention it
 while continuing the campaign work that is already clear. No initialization marker
@@ -60,6 +66,9 @@ Adapt the templates in [assets](assets) into the campaign folder:
 - [DECISIONS.md](assets/DECISIONS.md): significant design/experimental choices and reasons; otherwise a brief empty log.
 - [RESULT.md](assets/RESULT.md): a draft placeholder for the eventual outcome.
 - `notes/`: an initially empty folder for working notes, run records, and reviews.
+
+Use [NOTE.md](assets/NOTE.md) only when writing a useful note later; do not copy it
+as a sixth campaign record or create an empty notes index.
 
 Keep the spec suitable for the work: engineering behavior, research question and
 comparisons, or both. Size each chunk for one working session, including its focused

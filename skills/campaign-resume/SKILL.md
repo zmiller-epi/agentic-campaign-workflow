@@ -5,6 +5,9 @@ description: Inspect an existing campaign, orient the user to its current state,
 
 # Resume a campaign
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 This is an orientation step. Inspect the campaign and working state, explain what
 is going on, and end the turn waiting for the user's next direction. A request to
 resume does not itself authorize starting or continuing campaign work, even when
@@ -15,12 +18,15 @@ Look in the project's campaign locations, including older engineering/experiment
 folders. If several candidates fit, show brief choices and ask which one.
 Do not read every previous campaign in full or treat missing status fields as inactivity.
 
-Read `STATE.md` and the relevant spec/plan sections, following its essential links.
-Use [record access](../campaign-start/references/record-access.md) for applicable decisions,
-specific historical questions, or legacy status/approval/handoff locations when state
-is absent. Do not load all recent notes for orientation. Inspect the actual working
-state and recent changes to distinguish intended work from work already done.
-Account for an in-progress chunk or pending review/closure approval.
+Read `STATE.md` first, then use headings or bounded searches to read the campaign
+purpose, applicable constraints/criteria, and selected plan chunk. Apply
+[record access](../campaign-start/references/record-access.md) for this inspection,
+including legacy campaigns. Follow a note link only to answer a specific gap; read its
+summary/scope before any needed detail. Do not load all core files or recent notes.
+Inspect working status and a recent change summary, opening particular diffs only
+when needed to reconcile the records. Account for pending review/closure approval.
+Stop gathering context when purpose, current status, approval/restrictions, blockers,
+and the next action are clear; orientation does not require reconstructing history.
 
 Keep this inspection read-only. If records disagree, investigate enough to explain
 the discrepancy without inventing history. Surface stale pointers and substantial

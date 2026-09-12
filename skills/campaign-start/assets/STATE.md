@@ -24,6 +24,8 @@ Update statuses and start/completion timestamps as they occur. Keep intended wor
 ## Current work and blockers
 Name the current chunk, applicable review assessment, unresolved findings, and the
 specific evidence links needed to continue. Leave this brief when nothing is blocked.
+For each essential link, name the question it answers and the relevant section or
+finding ID; a report's full contents are not a prerequisite for resuming.
 
 ## Next action and handoff
 Give the next action and its first concrete step, plus a prompt naming the campaign
@@ -32,3 +34,6 @@ revision. After approval, hand off the first planned chunk without starting it.
 After chunk completion, identify the next chunk or review/closure action without
 starting it. For a closed campaign, identify follow-ups or state that no work remains.
 Use `Updated` as the handoff timestamp when refreshing this snapshot.
+Name the spec/plan sections and any particular note section the next action needs,
+with a short reason to read each. Keep these pointers limited to the next action;
+do not list the campaign's entire document set or history.

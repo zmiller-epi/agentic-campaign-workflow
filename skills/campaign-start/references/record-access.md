@@ -2,19 +2,54 @@
 
 ## Current context first
 
-Read `STATE.md`, the relevant `SPEC.md` and `PLAN.md` sections, and directly applicable
-decisions. Follow state links for the evidence or unresolved question needed by the
-current action. Read `RESULT.md` when assessing the outcome or closure. Do not load
-every note, every decision, or all recent reports as routine orientation.
+Treat orientation as answering a few current questions, not collecting a document set.
+Read `STATE.md` first; a compact snapshot can be read in full. If it has grown into a
+history, locate its current status, authorization, blockers, and handoff sections.
+Then read the campaign purpose, applicable constraints and completion criteria in
+`SPEC.md`, and the selected chunk and its dependencies in `PLAN.md`. Use headings to
+locate these sections; a file being under 200 lines does not make every section relevant.
 
-For a known small source, open the relevant section directly. For historical questions,
-search filenames, identifiers, headings, or matching passages first, then inspect the
-surrounding context. Prefer filename-only matches or bounded snippets; narrow broad
-queries before returning large result sets. Use available text search (such as `rg`)
-and follow references,
-corrections, and supersession links; recency alone does not establish applicability.
-Broaden terms or scope when the evidence is incomplete. Search failures do not prove
-that an event never happened.
+Stop orienting once you can explain the purpose, current chunk/status, applicable
+approval and restrictions, blockers, and next action. Each additional read should
+answer a named gap or a question raised by the actual work. An unclear handoff calls
+for targeted investigation or reporting the gap, not loading the whole campaign.
+Read `RESULT.md` for outcome/closure questions and decisions when their choice applies.
+Do not load every core document, recent report, linked note, or skill for orientation.
+
+State links are pointers, not a reading checklist. For a needed note, read its summary
+and scope first, then the specific finding or evidence section that answers the
+question. Follow corrections and supersession links when relevant; recency alone does
+not establish applicability. Stop following links once the question is answered.
+
+## Locating sections
+
+Search within the selected campaign and relevant paths before widening to other
+campaigns. Prefer filenames, headings, and identifiers before matching body text.
+For example, replacing the path and chunk/topic with the actual task:
+
+```sh
+campaign_dir=docs/campaigns/example
+rg -n '^#{1,3} ' "$campaign_dir/SPEC.md" "$campaign_dir/PLAN.md"
+rg --files "$campaign_dir/notes" -g '*chunk-2*'
+rg -l -F 'parameter ceiling' "$campaign_dir/notes"
+rg -n '^#{1,3} ' "$campaign_dir/notes/selected-note.md"
+sed -n '35,75p' "$campaign_dir/notes/selected-note.md"
+```
+
+Choose line ranges from the headings or matches just found; the numbers above are
+illustrative. Use filename-only matches to find candidate notes, then bounded snippets
+or section ranges from selected files. Avoid wildcard full-file reads or recursive
+content dumps. A per-file match limit does not bound output across a directory; narrow
+the files and terms if results are large or truncated. Equivalent search/read tools
+are fine. Broaden when evidence is incomplete; no matches do not prove an event absent.
+
+## Who reads the detail
+
+The main session reads current intent, approvals, constraints, and the selected chunk
+itself. Keep small direct lookups local; delegate broad source searches before loading
+their detail. For implementation, investigation, verification, and documentation
+assignments, see [work allocation](work-allocation.md). Execution can require further
+source reading after orientation is complete.
 
 ## Bounded retrieval with subagents
 
@@ -28,8 +63,10 @@ Example: "Why did we stop testing parameter values above 0.8? Find the supportin
 evidence and any later finding that changed that conclusion. Work read-only. Return
 a concise answer with source references and unresolved uncertainty."
 
-The subagent searches selectively too. It returns the answer, file/section or line
-references, relevant contradictions or superseding evidence, and search limitations.
+The subagent searches selectively too. Ask for a brief answer (normally at most about
+500 words) with file/section or line references, relevant contradictions or superseding
+evidence, and search limitations. Preserve consequential uncertainty even if it needs
+more space; omit full source extracts, logs, and a narration of the search.
 It does not modify campaign records. The parent uses the answer, following up on
 specific uncertainty or checking a consequential source passage without repeating
 the full search. Retrieval supports review; it does not replace the independent
@@ -40,6 +77,25 @@ selective process locally; historical lookup is not blocked on subagent support.
 Context isolation can protect the main session while increasing total work or latency.
 Do not create a note for every lookup. Retain a brief source pointer in `STATE.md` if
 needed for ongoing work; write a new synthesis only when it adds substantive knowledge.
+
+## Searching note summaries
+
+New notes use the same `## Summary` heading and a short block with `When`, `Chunk/run`,
+and `Touches`, followed by a 1–2 sentence finding and any unresolved issue. This makes
+summaries searchable without a separate index to maintain. After narrowing candidate
+filenames or topics, extract only those summary blocks; for example:
+
+```sh
+rg -l '^\*\*Touches:\*\*.*normalization' "$campaign_dir/notes" -g '*.md'
+rg -n -A 6 '^## Summary$' "$campaign_dir/notes/selected-note.md"
+```
+
+For a small candidate set the second command can take several filenames. Do not dump
+all summaries from a large folder for routine orientation. `-A 6` is a preview, not a
+complete finding: read further if the block is longer or the answer needs evidence.
+Search headings or relevant passages in older notes without summaries. No summary or
+matching term does not prove absence; broaden when needed. Add summaries only during
+authorized documentation updates, preserving original content and timestamps.
 
 ## Existing campaigns
 

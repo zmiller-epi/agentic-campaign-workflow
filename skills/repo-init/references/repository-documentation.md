@@ -81,10 +81,11 @@ When an investigation leaves useful context, write one optional note such as
 `docs/notes/YYYY-MM-DD_HH-mm±HHMM-topic.md`. Use `YYYY-MM-DD HH:mm ±HH:MM`
 for date stamps inside the note, following the
 [shared timestamp convention](../../campaign-start/references/campaign-workflow-overview.md#timestamps).
-Include the reason for the work, what happened, supporting evidence, and any next
-action as useful. These are prompts, not required
-fields. Record a meaningful decision and its reason in that same note; a standalone
-task needs no separate spec, plan, decision log, or completion ceremony.
+Adapt the [note template](../../campaign-start/assets/NOTE.md): a short summary,
+searchable scope and findings, evidence links, and useful next actions. Aim for about
+200 lines or fewer and link large artifacts; omit empty prompts. Record a meaningful
+decision and its reason in that same note; a standalone task needs no separate spec,
+plan, decision log, or completion ceremony.
 
 For a small experiment, retain enough code, input/configuration, command, environment,
 and output provenance to understand its result. Separate observations from interpretation.

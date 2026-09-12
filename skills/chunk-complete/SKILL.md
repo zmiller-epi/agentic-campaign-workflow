@@ -5,6 +5,9 @@ description: Close a finished campaign chunk, record evidence, update and clean 
 
 # Complete a chunk
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.
@@ -44,8 +47,10 @@ evidence in the campaign, and link to them from current guidance where useful.
 Replace the current handoff in `STATE.md` with essential evidence pointers, unresolved
 follow-ups, branch/worktree, and the next chunk or review/closure action. Retain valid
 approvals and restrictions; preserve unique useful history in notes before replacing
-its only copy. Make the first step concrete for a fresh session. Leave later chunks
-planned in state and completed chunks' intended work intact in the plan.
+its only copy. Name the particular spec/plan or note sections the next action needs
+and why, without listing every campaign record. Make the first step concrete for a
+fresh session. Leave later chunks planned in state and completed chunks' intended
+work intact in the plan.
 
 Run [campaign-cleanup](../campaign-cleanup/SKILL.md), preferably in a subagent.
 Give it the campaign path, current chunk, affected records/links, and documentation

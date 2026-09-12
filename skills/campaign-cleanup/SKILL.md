@@ -5,6 +5,9 @@ description: Tidy a selected campaign's documentation after chunk completion, be
 
 # Clean up a campaign
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.
@@ -41,6 +44,31 @@ ownership, follow the preservation and link-repair procedure in record access. K
 substantive decisions in place; relocate misplaced history without losing its content
 or timestamps. Do not migrate or rename whole campaigns merely to match templates. In particular, `RESULTS.md`, `NOTES.md`,
 `REVIEW.md`, and `experiments/` may contain valuable existing records.
+
+Within the assigned scope, consolidate for the next reader:
+
+- Keep one current home for each fact: intent in spec/plan, status in state, choices
+  in decisions, and detailed evidence in notes. Replace duplicated current prose with
+  a brief statement and a section link; preserve distinct facts and useful history.
+- Remove filler, repeated explanations, and unused template prompts from maintained
+  summaries. Use plain language and retain reasons, constraints, evidence, and uncertainty.
+- Keep state to a current snapshot and a few next-action pointers, each saying why
+  to read that section. Do not append a cleanup narrative or a catalog of every note.
+- Aim for notes of about 200 lines or fewer using the [note template](../campaign-start/assets/NOTE.md).
+  For a long historical note, add a short summary or section pointers as needed;
+  preserve the original evidence. Move detail only with traceable links and the
+  preservation procedure above. Do not split or rewrite history just to meet a count.
+- For scattered findings on one question, add a short synthesis only if it makes
+  retrieval easier; link the original reports and any corrections. Do not merge
+  distinct runs or review rounds into a replacement history.
+- When a touched note lacks a useful summary, add the standard `Summary` block:
+  event time, chunk/run, affected files/topics, and a 1–2 sentence finding with uncertainty.
+  Preserve unknown times as unknown. Search these summaries instead of creating a
+  separate index; preserve an existing index and repair affected links if needed.
+  Routine cleanup does not scan all notes just to measure length or add summaries.
+
+Check that the next action can be understood from state and the named sections,
+without reopening the full campaign history. Report remaining navigation gaps.
 
 Flag consequential discrepancies for the parent or user. Do not invent evidence,
 approval, decisions, or run history; do not change scientific interpretations, expand

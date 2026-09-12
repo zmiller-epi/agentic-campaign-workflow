@@ -4,6 +4,13 @@ A campaign carries engineering or research work across sessions. Adapt its recor
 to the work and the user's preferences.
 This overview defines shared conventions; individual skills own their procedures.
 
+## Writing
+
+Use concise, plain language in records and responses. Keep facts, decisions, reasons,
+evidence, uncertainty, and next actions; remove filler, repeated context, and empty
+prompts. Prefer a short statement and a source link to copied detail. Length targets
+are not a reason to omit material evidence or alter historical records.
+
 ## Project documentation and smaller tasks
 
 Use [repo-init](../../repo-init/SKILL.md) to introduce or refresh project docs;
@@ -48,11 +55,22 @@ Closure approval stays in `RESULT.md`.
 
 ## Reading records
 
-Start with current state and the relevant spec/plan sections. Load notes to answer
-specific questions. Follow [record access](record-access.md) for selective reading,
-bounded subagent searches across history, or using an older campaign without
-`STATE.md`. Essential current obligations should be reachable from state without
-reconstructing the campaign's history.
+Read current state first, then use headings/search to select the applicable spec/plan
+sections. Stop orientation when purpose, current status, approval/restrictions,
+blockers, and next action are clear. Each further read should answer a specific question;
+state links are not a checklist to load. Follow [record access](record-access.md) for
+search examples, main-session versus subagent reading, or campaigns without `STATE.md`.
+Keep descriptive headings and stable chunk/run/finding identifiers in records, and
+link to sections where possible. Essential current obligations should be reachable
+from state without reconstructing history. Short files still need selective reading.
+
+## Allocating work
+
+At chunk start and when substantial new work appears, identify what can proceed
+independently. Delegate bounded investigation, implementation, verification, or cleanup
+when it saves main-session context or allows useful concurrent progress. Keep task
+intent, approvals, integration, and tightly coupled work in the main session. Follow
+[work allocation](work-allocation.md) for ownership, handoffs, and fallback guidance.
 
 ## Timestamps
 
@@ -96,12 +114,22 @@ code revision and relevant uncommitted changes, commands/configuration, input ve
 material environment/seeds, outputs, and limitations. Link to large artifacts where stored.
 Negative or inconclusive results can satisfy an investigation's completion criteria.
 
-Use one note per coherent run, investigation, or review, with related observations
-together. Start with a short summary of the question, finding, and unresolved issues.
-Name notes using the [timestamp convention](#timestamps), a descriptive topic, and
-chunk/run identifiers where useful. Add a round suffix to avoid collisions. Preserve
-earlier reports and run evidence, linking corrections and superseding findings.
-Routine actions, handoffs, and lookups do not each need a note or an index entry.
+Use one note per coherent run, investigation, or review. Aim for about 200 lines or
+fewer of readable Markdown. Link large logs, tables, and transcripts; preserve needed
+evidence rather than truncating it or packing it into long lines. Separate distinct
+topics, and link substantial detail while keeping the main note useful on its own.
+
+Adapt the [note template](../assets/NOTE.md). Keep `## Summary` consistent: `When`,
+`Chunk/run`, and `Touches`, then 1–2 sentences (normally under 60 words) with the
+finding and material uncertainty. These [searchable summaries](record-access.md#searching-note-summaries)
+replace a separate notes index. Use `Scope`, `Findings`, `Evidence`, and `Open questions
+and next actions` as needed; give review findings stable IDs for later resolution links.
+
+Use the [timestamp convention](#timestamps), descriptive topics, and useful chunk/run
+IDs in filenames; add a round suffix to avoid collisions. Preserve earlier reports,
+linking corrections and superseding findings. During authorized cleanup, add summaries
+or section pointers to older notes where useful; do not bulk rewrite them to match a
+length or format. Routine actions, handoffs, and lookups need no note or index entry.
 
 ## Reviews
 
@@ -130,8 +158,10 @@ Run [campaign-cleanup](../../campaign-cleanup/SKILL.md) after chunk completion a
 while preparing campaign closure, or when records drift. It repairs documentation
 within its assigned ownership. Routine cleanup starts with affected records and
 links, expanding when discrepancies warrant it. Closure reconciles the outcome and
-evidence across the campaign. Preserve history and surface uncertainty; a clean pass
-needs no report or rewrite of unchanged records.
+evidence across the campaign. Consolidate duplicated current guidance into its proper
+record and link to it; keep state and note summaries short enough for targeted resume.
+Preserve history and surface uncertainty; a clean pass needs no report or rewrite of
+unchanged records.
 
 [campaign-complete](../../campaign-complete/SKILL.md) prepares `RESULT.md`, runs
 cleanup, and obtains approval of the concrete result and disposition before closure.
