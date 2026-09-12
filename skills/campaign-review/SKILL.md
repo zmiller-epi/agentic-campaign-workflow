@@ -5,6 +5,9 @@ description: Delegate an engineering or research campaign review to independent 
 
 # Review a campaign
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.
@@ -56,7 +59,10 @@ identify the missing scope and need for subagent support.
 
 Write a new report in `notes/`, for example
 `YYYY-MM-DD_HH-mm±HHMM-campaign-review.md`, with a suffix for later rounds.
-Include the review timestamp. Explain the scope/revisions reviewed, evidence and checks,
+Include the review timestamp and adapt the [note template](../campaign-start/assets/NOTE.md).
+Use a short summary, searchable scope/finding headings, and a target of about 200
+lines or fewer; link substantial detail without omitting findings or coverage gaps.
+Explain the scope/revisions reviewed, evidence and checks,
 findings ordered by consequence, limitations, and whether the intended outcome is
 supported by the reviewed scope. Incomplete coverage cannot establish overall readiness.
 Give actionable findings clear next steps and supporting file/artifact links.

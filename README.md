@@ -30,12 +30,18 @@ or changing default parameters. Routine approvals, execution events, and complet
 announcements do not need decision entries. Review reports and run details live in
 `notes/`; current state links to the applicable evidence and unresolved findings.
 
-Agents start with current state and relevant spec/plan sections, then follow specific
-links or search for a concrete question. Broader historical questions can go to a
-read-only subagent that returns a concise answer with sources and uncertainty. See
-[record access](skills/campaign-start/references/record-access.md) for selective retrieval
-and adapting an older campaign. One coherent activity can have one note; every action,
-session, or lookup does not need a new file or summary.
+Agents read state first and use headings/search for relevant spec/plan sections.
+Orientation stops when purpose, status, approval/restrictions, blockers, and next action
+are clear. Links point to answers, not a list of files to load. See
+[record access](skills/campaign-start/references/record-access.md) for selective retrieval,
+bounded historical searches, searchable note summaries, and older campaigns.
+
+Use concise, plain language: facts, decisions and reasons, evidence, uncertainty, and
+next actions. New notes use a [short template](skills/campaign-start/assets/NOTE.md)
+with a standard summary: event time, chunk/run, affected files/topics, and a 1–2
+sentence finding. Agents can search these blocks without a separate notes index.
+Aim for about 200 lines or fewer; link large artifacts and preserve history. One coherent
+activity can have one note; every action, session, or lookup does not need a new file.
 
 New date stamps include hours, minutes, and a UTC offset: `YYYY-MM-DD HH:mm ±HH:MM`
 (for example, `2026-09-08 18:35 -07:00`). Note filenames use
@@ -105,13 +111,22 @@ and active restrictions across sessions. Each handoff replaces the current snaps
 useful history stays in linked notes. Resume wherever useful. Review can uncover another chunk; cleanup
 does not enforce a rigid sequence. Small tasks do not need to become campaigns.
 
+Delegation also applies during planning and execution. Keep intent, decisions, and
+tightly coupled work in the main session; hand off bounded investigations, separate
+implementation tasks, verification, or documentation when useful work can proceed
+independently or a broad search would consume the main context. See
+[work allocation](skills/campaign-start/references/work-allocation.md) for ownership
+and compact handoffs. Small direct tasks can stay local.
+
 Reviews delegate detailed inspection and checks to independent subagents; the calling
 session scopes the work and synthesizes compact findings into a report. If delegation
 is unavailable, record the review gap and hand off to a dedicated review session instead
 of filling the current context with the review. Cleanup receives documentation ownership
 only and can run locally when delegation is unavailable. Routine cleanup starts with
 the chunk's affected records and links, expanding when discrepancies warrant it;
-closure reconciles the accumulated outcome. No custom subagent registration is required.
+closure reconciles the accumulated outcome. Cleanup also replaces duplicated current
+prose with source links and makes long notes easier to navigate, preserving historical
+evidence. No custom subagent registration is required.
 
 ## Install
 

@@ -5,6 +5,9 @@ description: Reload updated campaign workflow skills during an existing task, op
 
 # Refresh campaign skills
 
+Use concise, plain language in records and responses. Keep needed facts, reasons,
+evidence, uncertainty, and next actions; omit filler and repeated context.
+
 Use `YYYY-MM-DD HH:mm ±HH:MM` for every new date stamp this skill records. Follow
 [the shared timestamp convention](../campaign-start/references/campaign-workflow-overview.md#timestamps)
 for filenames, time zones, and preserving historical records.

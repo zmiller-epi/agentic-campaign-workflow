@@ -13,3 +13,5 @@ Leave this file unchanged when no qualifying decision occurred; an empty log is 
 ## <YYYY-MM-DD HH:mm ±HH:MM>: <decision>
 What we chose and why. Include useful alternatives, evidence links, and what would
 make us revisit it. Preserve earlier substantive decisions and link superseding ones.
+Name affected chunk/run IDs and concrete methods or parameters for targeted search;
+link this section from state when the choice constrains current work.
