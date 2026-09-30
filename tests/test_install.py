@@ -62,6 +62,24 @@ class InstallTests(unittest.TestCase):
                 else:
                     self.assertFalse((project / ".claude").exists())
 
+    def test_each_skill_distributes_the_root_license(self):
+        license_text = (ROOT / "LICENSE").read_bytes()
+        skills = sorted((ROOT / "skills").glob("*/SKILL.md"))
+        self.assertTrue(skills)
+        for skill in skills:
+            with self.subTest(source=skill.parent.name):
+                self.assertEqual((skill.parent / "LICENSE").read_bytes(), license_text)
+        for harness in ("codex", "claude", "both"):
+            with self.subTest(harness=harness):
+                project = self.project / harness
+                project.mkdir()
+                module.install(project, harness)
+                roots = (".agents",) if harness == "codex" else (".agents", ".claude")
+                for root in roots:
+                    for skill in skills:
+                        installed = project / root / "skills" / skill.parent.name / "LICENSE"
+                        self.assertEqual(installed.read_bytes(), license_text, str(installed))
+
     def test_collision_in_claude_prevents_all_writes(self):
         existing = self.project / ".claude/skills/chunk-start"
         existing.mkdir(parents=True)

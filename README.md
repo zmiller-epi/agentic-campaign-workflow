@@ -7,6 +7,42 @@ Start with a conversation, work in session-sized chunks, review the evidence, an
 leave enough context for the next session. Engineering, experiments, and mixed
 campaigns use the same skills. The plan can change as the work teaches you something.
 
+## Quick start
+
+You need Git, Python 3.9+, and Claude Code or Codex. Choose an existing project
+directory where you want to use the workflow, then run:
+
+```bash
+git clone https://github.com/zmiller-epi/agentic-campaign-workflow.git
+cd agentic-campaign-workflow
+python3 scripts/install.py --project "/path/to/your/project" --harness both
+```
+
+Replace `/path/to/your/project` with your project's path. Use `--harness codex` or
+`--harness claude` to install for just one harness. Claude installation uses symlinks;
+on Windows, these require Developer Mode or appropriate privileges. The Codex-only
+copy installation does not require symlinks.
+
+Open a fresh agent session in your target project and invoke `$campaign-start` in
+Codex or `/campaign-start` in Claude Code, followed by a short description of what
+you want to build or investigate. The agent clarifies the objective, drafts the
+campaign records, and asks you to approve the plan. After approval, it stops with
+a handoff for a fresh session to begin implementation.
+
+The installer refuses to overwrite existing skills and leaves project instructions,
+settings, and campaign records alone. See [installation details](#install) for the
+layout and other installation routes, or [migration notes](docs/migration.md) when
+updating an existing installation.
+
+## Status and feedback
+
+This workflow is experimental, with best-effort support. Installation and automated
+checks have been exercised on Linux with Python 3.14.7. Other operating systems and
+agent behavior across harness/model versions remain unverified by these checks.
+Send initial feedback to the person who shared this repository with you; include
+your operating system, Python and harness versions, and what you expected to happen.
+Remove credentials and private project details from any examples you share.
+
 ## The working record
 
 New campaigns default to `docs/campaigns/<name>/`:
@@ -282,7 +318,7 @@ If both instruction files already exist, reconcile any distinct content before
 replacing either. The installer does not do that merge or create this link for you.
 For Claude-specific additions, use a regular `CLAUDE.md` containing `@AGENTS.md`
 followed by those additions. Both sharing approaches are documented by
-[Claude Code](https://code.claude.com/docs/en/memory#agentsmd).
+[Claude Code](https://code.claude.com/docs/en/memory#share-one-file-with-other-coding-tools).
 
 Keep project facts in the project's own instruction files. Do not copy this
 repository's `AGENTS.md` into another project: it describes maintaining the kit itself.
@@ -322,3 +358,10 @@ python3 -m unittest discover -s tests -v
 They exercise both installation layouts, preservation of existing files, and
 relative references. The skills themselves are instructions; structural checks
 cannot establish how well an agent interviews, investigates, or reviews.
+
+## License
+
+The scripts, skills, templates, and documentation in this repository are licensed
+under the [MIT License](LICENSE), copyright (c) 2026 Episteme Inc. Each skill includes
+a copy of the license so the notice travels with installed skills. Retain the
+copyright and license notice when sharing copies or substantial portions of the kit.
